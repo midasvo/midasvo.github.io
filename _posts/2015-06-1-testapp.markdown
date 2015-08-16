@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "Test App"
+date:   2015-06-1 01:39:50
+categories: jekyll portfolio
+description: "A single page application made with the MEAN stack"
+status: draft
+
+images:
+
+  - url: /assets/images/project_thumbnails/testApp_code.png
+    alt: Some code from test app
+    title: Test App made with MongoDB, AngularJS, ExpressJS, NodeJS
+
+---
+
+
+Type: I worked on this project individually during the CRIA course.
+
+#### Description
+
+I was tasked with creating a Single Page Application with the MEAN stack with the purpose of testing RESTful API's. I used the [mean.js](https://github.com/meanjs/mean) framework to kickstart my project because I the vertical structure is very intuitive. There are still plenty of things missing and I intend to remedy them when I have the time to do so.
+
+The app is based on the popular Chrome extension Postman, with the major difference being scenarios. 
+
+A request is a HTTP 'GET' or 'POST' request to a URL with optional parameters. What you get back is the Status Code, headers, and the response. 
+
+A test is an assertion coupled with a request. Say for instance you want to check if the URL returns the 'OK' Status Code the assertion will be 'statusCode===200'.
+
+A scenario is a list of tests that have to be run consecutively, optionally with the output of the first test being the input for the next request and so on. 
+
+#### How
+
+The core of the application is making requests and handling the response. For the purpose I used the [q](https://github.com/kriskowal/q) promise library and [request](https://github.com/request/request). There are still some remnants in the code from when I tried to do requests with plain JS, but I found the request library to be much smoother to work with. 
+
+#### Code/demo
+

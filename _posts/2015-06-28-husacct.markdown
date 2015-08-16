@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "HUSACCT"
+date:   2015-06-28 01:39:50
+categories: jekyll portfolio
+description: "Adding design patterns and more to an existing Java application"
+status: draft
+
+images:
+
+  - url: /assets/images/project_thumbnails/HUSACCT.png
+    alt: HUSACCT
+    title: Altering HUSACCT with Java
+
+---
+
+I worked on HUSACCT with a group during an 8 week project in the semester Object Oriented Software Engineering. HUSACCT is a Software Architecture Checking Tool, which in short, analyzes source code and compares it to the intended architecture.
+
+Since the application was already very far in development we were given the task of implementing 2 design patterns (MVC, BlackBoard) plus the possibility of adding more patterns and altering existing ones.
+
+The code was developed via Stash on a school server, I do not have the code available. 
+
+
+o	Java, Spring Roo, Glassfish
+o	Research into SOAP
+o	Functional design and technical design documents
+o	Version control
+o	UML (class, sequence, domain)

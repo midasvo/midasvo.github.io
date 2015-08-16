@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Ember"
+date:   2014-06-28 01:39:50
+categories: jekyll portfolio
+description: "A single page application made with the MEAN stack"
+status: draft
+
+images:
+
+  - url: /assets/images/project_thumbnails/Ember_Rood.png
+    alt: Ember Logo
+    title: Ember made with MongoDB, AngularJS, ExpressJS, NodeJS
+
+---
+Ember is a single page web application created as a collaborative effort. I was one of two programmers in a group of 5, the others being designers/communication students. The theme of the project phase of the semester 'Create a Rich Internet Application' was *Design Your Own...*.
+
+After some brainstorming we settled on a fictional assignment of Nintendo wanting a *Design Your Own Pokemon* web application.
+
+A major part of the project revolved around researching user experience and turning generated code into Angular. Lesson learned: don't let the designers use an online tool to create the design in HTML. It's an absolute mess.
+
+Because this project was the first real taste of MEAN I've gotten, I chose to kick-start the project and make up for lost time using the Yeoman generator for scaffolding and [meanjs](http://meanjs.org) because of its superior documentation.
+
+We had a very short development time so a lot of the really cool features we would've liked such as meta-games are not implemented. The main feature is the ability to use the canvas to create a custom Pokemon users sliders for ligaments. The user can save the image and name the Pokemon. Stats are generated at random. 
+
+Because we've had a set of custom Pokemon images designed and implemented I can't demo the program online (copyrights). 
