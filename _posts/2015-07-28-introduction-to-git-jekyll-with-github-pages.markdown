@@ -34,9 +34,11 @@ Open the terminal and install git
 #### Windows
 Download the installer from the [git-scm website](https://git-scm.com/download/windows).
 
-##### Setting up Git
+### Setting up Git
 
 We will only need to setup Git on our machine once. Use the **git config** command to set your name and email. These are the credentials that will be used to commit to github, make sure you use your primary Github email and correct name.
+
+Open either your terminal or [Git Bash](https://git-for-windows.github.io/) if you're on Windows.
 
 user.name sets your name:
 
