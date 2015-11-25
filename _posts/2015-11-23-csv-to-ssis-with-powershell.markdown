@@ -35,7 +35,8 @@ Because the files are dropped at undetermined times I created a script that moni
 
 The code might change before the article changes so keep up with the [current version on Github](https://github.com/midasvo/AUTOCSV2SSIS).
 
-```powershell
+```
+
 	$package = "\path\to\Package.dtsx"
 
 	$SSISWorkingDirectory = "\path\to\SSISWorkingDirectory"
@@ -107,4 +108,3 @@ The code might change before the article changes so keep up with the [current ve
 	    $timer.Enabled = $True
 	} 
 
-```
