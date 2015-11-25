@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Automatically importing CSV into SSIS using Powershell"
+title:  "AUTOCSV2SSIS"
 date:   2015-11-23 12:39:50
-categories: jekyll blog tutorial
+categories: jekyll blog tutorial portfolio
 description: "How you use Powershell to automate importing CSV files into SSIS"
 status: draft
 ---
@@ -33,9 +33,8 @@ Because the files are dropped at undetermined times I created a script that moni
 
 # The code
 
-The code might change before the article changes so keep up with the [current version on Github](https://github.com/midasvo/AUTOCSV2SSIS).
+The code might change before the article changes so keep up with the [current version on Github](https://github.com/midasvo/AUTOCSV2SSIS). Or just download the [zip](https://github.com/midasvo/AUTOCSV2SSIS/archive/master.zip).
 
-```
 
 	$package = "\path\to\Package.dtsx"
 
