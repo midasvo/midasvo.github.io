@@ -6,5 +6,3 @@ categories: jekyll blog tutorial
 description: "A quick overview of the most common distros and how to install"
 status: draft
 ---
-
-Halloo
