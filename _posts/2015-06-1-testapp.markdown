@@ -17,9 +17,9 @@ images:
 
 Type: I worked on this project individually during the CRIA course.
 
-#### Description
+## Description
 
-I was tasked with creating a Single Page Application with the MEAN stack with the purpose of testing RESTful API's. I used the [mean.js](https://github.com/meanjs/mean) framework to kickstart my project because I the vertical structure is very intuitive. There are still plenty of things missing and I intend to remedy them when I have the time to do so.
+I created a Single Page Application with the MEAN stack with the purpose of testing RESTful API's. I used the [mean.js](https://github.com/meanjs/mean) framework to kickstart my project because I the vertical structure is very intuitive. There are still plenty of things missing and I intend to remedy them when I have the time to do so.
 
 The app is based on the popular Chrome extension Postman, with the major difference being scenarios. 
 
@@ -29,9 +29,30 @@ A test is an assertion coupled with a request. Say for instance you want to chec
 
 A scenario is a list of tests that have to be run consecutively, optionally with the output of the first test being the input for the next request and so on. 
 
-#### How
+## How
 
 The core of the application is making requests and handling the response. For the purpose I used the [q](https://github.com/kriskowal/q) promise library and [request](https://github.com/request/request). There are still some remnants in the code from when I tried to do requests with plain JS, but I found the request library to be much smoother to work with. 
 
-#### Code/demo
+#### Creating a request
 
+![Create a request](/assets/images/testapp/1-testapp_create_new_request.png)
+
+#### Creating a test
+
+![Create a test](/assets/images/testapp/2-testapp_create_new_test.png)
+
+#### Creating a scenario
+
+![Create a scenario](/assets/images/testapp/3-testapp_create_new_scenario.png)
+
+#### Executing a request
+
+![Execute a request](/assets/images/testapp/5-testapp_do_request.png)
+
+#### Executing a test
+
+![Execute a test](/assets/images/testapp/6-testapp_do_test.png)
+
+#### Exxecuting a scenario 
+
+![Execute a scenario](/assets/images/testapp/7-testapp_do_scenario.png)

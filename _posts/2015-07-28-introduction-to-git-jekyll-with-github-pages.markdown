@@ -80,13 +80,10 @@ And you will get back something like:
 
 	"rvm 1.26.11 (master) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]"
 	
-If all is well in the world the Ruby version should be installed as well, check by using this command
+Install the latest:
 
-	ruby --version
+	rvm install ruby --latest
 
-And you should get something like this back: (change to latest?)
-
-	"'ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-linux]"
 
 #### Windows
 Windows users can install the [RubyInstaller](http://rubyinstaller.org/) and the [Ruby DevKit](http://dl.bintray.com/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe) from [this page](http://rubyinstaller.org/downloads/) in order to use gems.
