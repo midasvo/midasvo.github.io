@@ -7,13 +7,13 @@ description: "A short introduction to Git which focuses on building and hosting 
 status: draft
 ---
 
-**So you have heard about Git, but you still need to start somewhere? Let's do that together by building a simple website and hosting it for free on Github Pages. We will be using the Ruby gem [Jekyll](http://jekyllrb.com/) which takes [Markdown](https://help.github.com/articles/github-flavored-markdown/) and generates the static HTML pages which can be hosted on [Github Pages](http://githubpages.com).**
+**So you have heard about Git, but you still need to start somewhere? Let's do that together by building a simple portfolio website. We will be using the Ruby gem [Jekyll](http://jekyllrb.com/) which takes [Markdown](https://help.github.com/articles/github-flavored-markdown/) and generates the static HTML pages which can be hosted on [Github Pages](http://githubpages.com) for free.**
 
-You can use whatever operating system you like but I'll be noting the instructions down for the big 3: Ubuntu, OSX and Windows. If you are more a visual learner, check out the playlist on [YouTube](https://www.youtube.com/channel/UCp_1hENpjO2XKE_g18H3luw/playlists).
+You can use whatever operating system you like but I'll be noting the instructions down for the big 3: Ubuntu, OSX and Windows. 
 
-If you and your computer are up for it and you don't already run Linux or OSX, consider running a development machine with [VirtualBox](https://www.virtualbox.org/) and [Ubuntu 14.04.2 LTS](http://www.ubuntu.com/download/desktop) or dual-booting. [Check out this blog post here to get started on that](/blog/dev-machine-with-linux-virtualbox/). Especially for new-comers, or those with Windows this can save you some headache. If you still want to use Windows, the Jekyll part is a bit different. 
+If you and your computer are up for it and you don't already run Linux or OSX, consider running a development machine with [VirtualBox](https://www.virtualbox.org/) and [Ubuntu 14.04.2 LTS](http://www.ubuntu.com/download/desktop) or dual-booting. 
 
-If you want you can try out **[Portable Jekyll for Windows](https://github.com/madhur/PortableJekyll/wiki)** which allegedly contains all the things you need to run it. [Or check out this website for a Windows tutorial.](http://jekyll-windows.juthilo.com/) After you've got Jekyll installed you can come back and join us for the Git part.
+If you want you can try out **[Portable Jekyll for Windows](https://github.com/madhur/PortableJekyll/wiki)** which allegedly contains all the things you need to run it on Windows. [Or check out this website for a Windows tutorial.](http://jekyll-windows.juthilo.com/) After you've got Jekyll installed you can come back and join us for the Git part.
 
 * TOC
 {:toc}
@@ -31,16 +31,27 @@ Open the terminal and install git
 
 	brew install git
 
-OR
-
-Download the installer from the [git-scm website](https://git-scm.com/download/mac).
-
 #### Windows
 Download the installer from the [git-scm website](https://git-scm.com/download/windows).
 
-## Installing Ruby
+### Setting up Git
 
-Jekyll is a Ruby gem, if you already have Ruby installed, check if it's version is higher or equal to 1.9.3, otherwise you will need to change versions. If you don't have Ruby yet, we will use the [**R**uby **V**ersion **M**anager](https://rvm.io/) to install it. 
+We will only need to setup Git on our machine once. Use the **git config** command to set your name and email. These are the credentials that will be used to commit to github, make sure you use your primary Github email and correct name.
+
+Open either your terminal or [Git Bash](https://git-for-windows.github.io/) if you're on Windows.
+
+user.name sets your name:
+
+git config --global user.name "Midas van Oene"
+
+user.email sets your email:
+
+git config --global user.email "Midas.van.Oene@gmail.com"
+
+And we're all done here.
+
+## Installing Ruby
+Jekyll is a Ruby gem. If you don't have Ruby yet, we will use the [**R**uby **V**ersion **M**anager](https://rvm.io/) to install it. 
 
 #### Ubuntu & OSX
 
@@ -54,7 +65,7 @@ If you do not have cURL
 
 Paste this in the terminal to install RVM with ruby
 
-	\curl -sSL https://get.rvm.io | bash -s stable --ruby==1.9.3
+	\curl -sSL https://get.rvm.io | bash -s stable 
 
 
 The RVM installer will remind you that you need to run the *source* command before being able to use RVM and Ruby. Replace *username* with your own. It's best to just copy the outputted text.
@@ -73,7 +84,7 @@ If all is well in the world the Ruby version should be installed as well, check 
 
 	ruby --version
 
-And you should get something like this back:
+And you should get something like this back: (change to latest?)
 
 	"'ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-linux]"
 
@@ -95,7 +106,7 @@ I added the '- -no-rdoc' flag because of an install error, if you really want it
 
 Git is a **V**ersion **C**ontrol **S**ystem, [version control is a system that records changes to a file or set of files over time so that you can recall specific versions later](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control). 
 
-Git is **not** Github. Git is the [protocol](https://git-scm.com/book/ch4-1.html) and Github is one of many sites where you can host remotely. The reason we're going with Github and not something like [Bitbucket](http://bitbucket.org) is the free hosting or Jekyll pages. :-)
+Git is **not** Github. Git is the [protocol](https://git-scm.com/book/ch4-1.html) and Github is one of many sites where you can host remotely. The reason we're going with Github and not something like [Bitbucket](http://bitbucket.org) is the free hosting of Jekyll pages.
 
 Here are a couple commands to give you an idea and reference. We will run through them as well when we upload the Jekyll site to our github. Oh and [Here's a handy Git cheatsheet from Atlassian](https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf).
 
@@ -175,7 +186,7 @@ Open your browser and browse to [localhost:4000](http://localhost:4000)
 
 Welcome to Jekyll!
 
-What you are seeing now when you browse to your locahosts' port 4000 is the default installation of Jekyll. A short explanatation is in order. 
+What you are seeing now when you browse to your locahosts' port 4000 is the default installation of Jekyll. A short explanation is in order. 
 
 The following are all the files generated by Jekyll:
 
