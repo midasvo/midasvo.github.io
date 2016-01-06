@@ -20,9 +20,17 @@ My initial thought was to just talk about programming podcasts, but I quickly re
 
 #### The list
 
-1. Hello Internet
+1. [Hello Internet](http://www.hellointernet.fm/)
 
-2. Football Ramble
+Created by [Brady Haran](https://en.wikipedia.org/wiki/Brady_Haran) and [C.G.P. Grey](https://en.wikipedia.org/wiki/CGP_Grey) Hello Internet is basically two friends talking about whatever interests them. Be it technology, [flags](http://www.hellointernet.fm/podcast/46), air plane crashes, youtube, work, life, influencing the New Zealand flag referendum.. They do it well. Let's just say I know more about flags now then I thought there was to know. And I'm loving it. Highly recommended. 
+
+[RSS](http://www.hellointernet.fm/podcast?format=rss)
+
+2. [Football Ramble](http://www.thefootballramble.com/)
+
+The ramble. These guys mostly talk about the Premier League, then some Championship and SFPL. Highly entertaining and informative. 
+
+[RSS](http://rss.acast.com/footballramble)
 
 3. Programming Throwdown
 
