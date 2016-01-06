@@ -18,7 +18,7 @@ During the project phase of the semester Develop and Maintain an E-Community, I 
 
 
 
- Users could add their own ideas and use directional touch commands to judge other ideas. We did field research by taking interviews at the 
+ Users could add their own ideas and use directional touch commands to judge other ideas. We did field research by taking interviews at the university and hospital.  
 
 To sum up:
 
@@ -26,8 +26,3 @@ To sum up:
 - Prototyping
 - JavaScript, HTML5, CSS3
 - Community Centered Development
-
-o	Ruby on Rails
-o	Prototyping
-o	Community Centered Development
-o	Project: Eureka. Webcommunity for sharing and evaluating ideas within the Radboud UMC. 
