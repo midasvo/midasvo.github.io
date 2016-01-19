@@ -1,10 +1,13 @@
-<h2 class="">Latest projects</h2>
+---
+layout: default
+---
+<h2 class="">Projects</h2>
 
 <ul>
 
   <li class="projects-grid">
 
-    {% for post in site.categories.portfolio limit:2 %}
+    {% for post in site.categories.portfolio %}
     <a class="" href="{{ post.url | prepend: site.baseurl }}">
       <ul class="grid_item">
        <li class="project-title">
