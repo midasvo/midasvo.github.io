@@ -2,8 +2,8 @@
 layout: post
 title:  "AUTOCSV2SSIS"
 date:   2015-11-25 12:39:50
-categories: jekyll blog tutorial portfolio
-description: "How you use Powershell to automate importing CSV files into SSIS"
+categories: jekyll tutorial portfolio
+description: "How you use Powershell to automate importing CSV files into SSIS. A quick description and a look into the code"
 
 images:
 
