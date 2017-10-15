@@ -1,4 +1,4 @@
----
+ ---
 layout: post
 title:  "Useful bash"
 date:   2071-10-15 00:00:00
@@ -6,22 +6,37 @@ categories: bash scripts
 description: "How-to do useful stuff with bash"
 status: draft
 ---
-[I'm an inline-style link](https://www.google.com)
+
+# Table of Contents
+1. [Basics](#basics)
 
 
-## Basics
+# Basics
 
-### Making aliases
-`alias mycoolalias='. ./thefull/path/tobash/script.sh'`
+#### How to move around
 
-By running that in the command line we create the 'mycoolalias' alias which will execute the script.sh via its' full path.
+Use `cd` to get back to your root directory
 
-### Creating a script
+Use `cd..` to traverse one directory back
+
+Use `cd DIRECTORYNAME` to enter that directory
+
+Use `ls` or `ls -l` to display the directory content
+
+Use `cd DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a specific directory from the current working directory
+
+Use `cd /ROOTDIRECTORYNAME/DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a specific directory from the root directory 
+
+#### How to get your current directory
+
+`pwd`
+
+#### Creating a script
 `sudo nano /thefull/path/tobash/script.sh`
 
 After running the nano command we can start editing our script. 
 
-## The script
+#### The script
 
 A simple script to start with is outputting some text, let's start by echoing 'Hello World!'
 
@@ -32,13 +47,37 @@ Before we get to that we need to fulfill a requirement of any bash script, the `
 
 Hit CTRL+X, Y, and ENTER to save the script.
 
-## Making the script executable
+#### Making the script executable
 
 `chmod +x /thefull/path/tobash/script.sh`
 
-### Using the alias
+#### Running the script
+
+`. /thefull/path/tobash/script.sh`
+
+#### Making aliases
+
+`alias mycoolalias='. /thefull/path/tobash/script.sh'`
+
+The "." marks the script for execution.  
+
+By running that in the command line we create the 'mycoolalias' alias which will execute the script.sh via its' full path.
+
+#### Using the alias
 `mycoolalias`
 
+#### Using command-line parameters
+
+User input typed after the script call can be accessed by the dollar sign, an example:
+
+We create the following script:
+
+`#!/bin/bash`
+`echo "The answer to the question of $2 is $1."`
+
+Which will output "The answer to the question life is 42." if called as follows: 
+
+`mycoolalias 42 life`
 
 
 
