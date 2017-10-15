@@ -1,12 +1,18 @@
- ---
-layout: post
-title:  "Useful bash"
-date:   2071-10-15 00:00:00
-categories: bash scripts
-description: "How-to do useful stuff with bash"
-status: draft
 ---
+layout: post
+title:  "Bash"
+date:   2017-10-16 01:39:50
+categories: jekyll bash
+description: "How to #! it."
+status: draft
 
+images:
+
+  - url: /assets/images/project_thumbnails/HUSACCT.png
+    alt: Bash
+    title: bash
+
+---
 # Table of Contents
 1. [Basics](#basics)
 
