@@ -19,11 +19,13 @@ images:
 
 # Basics
 
+This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script. 
+
 #### How to move around
 
 Use `cd` to get back to your root directory
 
-Use `cd..` to traverse one directory back
+Use `cd ..` to traverse one directory back
 
 Use `cd DIRECTORYNAME` to enter that directory
 
@@ -53,6 +55,8 @@ Before we get to that we need to fulfill a requirement of any bash script, the `
 
 Hit CTRL+X, Y, and ENTER to save the script.
 
+[Download the script here](/assets/scripts/helloworld.sh)
+
 #### Making the script executable
 
 `chmod +x /thefull/path/tobash/script.sh`
@@ -76,14 +80,17 @@ By running that in the command line we create the 'mycoolalias' alias which will
 
 User input typed after the script call can be accessed by the dollar sign, an example:
 
-We create the following script:
+We create the following script: 
 
 `#!/bin/bash`
+
 `echo "The answer to the question of $2 is $1."`
 
 Which will output "The answer to the question life is 42." if called as follows: 
 
 `mycoolalias 42 life`
+
+[Download the script here](/assets/scripts/dontpanic.sh)
 
 
 
