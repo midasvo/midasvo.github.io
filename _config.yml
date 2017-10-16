@@ -13,9 +13,8 @@ trello_username: midasvo
 permalink: /blog/:title
 # Build settings
 markdown: kramdown
-gems:
+plugins:
   - jekyll-sitemap
-
 analytics :
   provider : google
   google : 

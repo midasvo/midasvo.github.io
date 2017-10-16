@@ -8,14 +8,20 @@ status: draft
 
 images:
 
-  - url: /assets/images/project_thumbnails/HUSACCT.png
+  - url: /assets/images/bash/shebang.png
     alt: Bash
     title: bash
 
 ---
 # Table of Contents
-1. [Basics](#basics)
+1. [Requirements](#requirements)
+2. [Basics](#basics)
 
+# Requirements
+
+The tutorials assumes:
+
+- Ubuntu 16.04
 
 # Basics
 
@@ -82,9 +88,10 @@ User input typed after the script call can be accessed by the dollar sign, an ex
 
 We create the following script: 
 
-`#!/bin/bash`
-
-`echo "The answer to the question of $2 is $1."`
+```
+#!/bin/bash
+echo "The answer to the question of $2 is $1."
+```
 
 Which will output "The answer to the question life is 42." if called as follows: 
 
