@@ -1,29 +1,22 @@
----
-layout: default
+--- 
+layout: default 
 ---
 <h2 class="">Projects</h2>
-
 <ul>
-
   <li class="projects-grid">
-
     {% for post in site.categories.portfolio %}
     <a class="" href="{{ post.url | prepend: site.baseurl }}">
       <ul class="grid_item">
-       <li class="project-title">
-         <h3>{{ post.title}}</h3>  
-         <p class="project-description">
-           {{post.description}}
-         </p>    
-       </li>
-
-       <li class="img">
-        {% assign image = post.images[0] %}
-        {% include image.html image=image %}        
-      </li>
+        <li class="project-title">
+          <h3>{{ post.title}}</h3>
+          <p class="project-description">
+            {{post.description}}
+          </p>
+        </li>
+        <li class="img">
+          {% assign image = post.images[0] %} {% include image.html image=image %}
+        </li>
     </a>
   </li>
-
-</ul>
-
-{% endfor %}
+  </ul>
+  {% endfor %}

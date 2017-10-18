@@ -1,22 +1,20 @@
+--- 
+layout: default 
 ---
-layout: default
----
-
 <p>I'm a <span class='dynamicBirthday'></span> year old web- and software developer.</p>
-
 <script type='text/javascript'>
-	(function() {
-		setAge();
-	})();
+(function() {
+	setAge();
+})();
 
-	function setAge() {
-		document.getElementsByClassName("dynamicBirthday")[0].innerHTML = getDynamicAge(1992, 03, 04);
-	}
+function setAge() {
+	document.getElementsByClassName("dynamicBirthday")[0].innerHTML = getDynamicAge(1992, 03, 04);
+}
 
-	function getDynamicAge(year, month, day) {
-		var birthDate = new Date(year, month, day);
-		var currentDate = new Date();
-		var difference = currentDate - birthDate; 
-		return Math.floor(difference/31557600000); 
-	}
+function getDynamicAge(year, month, day) {
+	var birthDate = new Date(year, month, day);
+	var currentDate = new Date();
+	var difference = currentDate - birthDate;
+	return Math.floor(difference / 31557600000);
+}
 </script>

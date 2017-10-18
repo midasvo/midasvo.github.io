@@ -23,6 +23,20 @@ The tutorials assumes:
 
 - Ubuntu 16.04
 
+#### Customization
+<div class="custom-params">
+<div>
+	<div>Pathname: </div><input type="text" name="pathname" id="pathname" value="path/toscript">
+</div>
+<div>
+	<div>Alias: </div><input type="text" name="alias" id="alias" value="myalias">
+</div>
+<div>
+	<div>Scriptname: </div><input type="text" name="script" id="script" value="myscript.sh">
+</div>
+</div>
+
+
 # Basics
 
 This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script. 
@@ -46,7 +60,7 @@ Use `cd /ROOTDIRECTORYNAME/DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a spec
 `pwd`
 
 #### Creating a script
-`sudo nano /thefull/path/tobash/script.sh`
+`sudo nano /#@PATHNAME@#/#@SCRIPT@#`
 
 After running the nano command we can start editing our script. 
 
@@ -61,26 +75,26 @@ Before we get to that we need to fulfill a requirement of any bash script, the `
 
 Hit CTRL+X, Y, and ENTER to save the script.
 
-[Download the script here](/assets/scripts/helloworld.sh)
+[Download the script here](/assets/scripts/UsefulBash/helloworld.sh)
 
 #### Making the script executable
 
-`chmod +x /thefull/path/tobash/script.sh`
+`chmod +x /#@PATHNAME@#/#@SCRIPT@#`
 
 #### Running the script
 
-`. /thefull/path/tobash/script.sh`
+`. /#@PATHNAME@#/#@SCRIPT@#`
 
 #### Making aliases
 
-`alias mycoolalias='. /thefull/path/tobash/script.sh'`
+`alias #@ALIAS@#='. /#@PATHNAME@#/#@SCRIPT@#'`
 
 The "." marks the script for execution.  
 
-By running that in the command line we create the 'mycoolalias' alias which will execute the script.sh via its' full path.
+By running that in the command line we create the '#@ALIAS@#' alias which will execute the #@SCRIPT@# via its' full path.
 
 #### Using the alias
-`mycoolalias`
+`#@ALIAS@#`
 
 #### Using command-line parameters
 
@@ -95,9 +109,14 @@ echo "The answer to the question of $2 is $1."
 
 Which will output "The answer to the question life is 42." if called as follows: 
 
-`mycoolalias 42 life`
+`#@ALIAS@# 42 life`
 
-[Download the script here](/assets/scripts/dontpanic.sh)
+[Download the script here](/assets/scripts/UsefulBash/dontpanic.sh)
 
-
+<script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
+<script type='text/javascript'>
+new inputBinder("pathname", ['div', 'p'], "#@PATHNAME@#", "dynamic-text-template-pathname");
+new inputBinder("alias", ['div', 'p'], "#@ALIAS@#", "dynamic-text-template-alias");
+new inputBinder("script", ['div', 'p'], "#@SCRIPT@#", "dynamic-text-template-script");
+</script>
 
