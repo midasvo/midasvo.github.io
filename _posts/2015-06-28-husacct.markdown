@@ -2,7 +2,7 @@
 layout: post
 title:  "HUSACCT"
 date:   2015-06-28 01:39:50
-categories: jekyll portfolio
+categories: jekyll education
 description: "Adding design patterns and more to an existing Java application"
 status: draft
 

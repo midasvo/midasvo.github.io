@@ -2,7 +2,7 @@
 layout: post
 title:  "Ember"
 date:   2014-06-28 01:39:50
-categories: jekyll portfolio
+categories: jekyll education
 description: "A single page application made with the MEAN stack developed with a team of students"
 status: draft
 

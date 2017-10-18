@@ -2,7 +2,7 @@
 layout: post
 title:  "Test App"
 date:   2015-06-1 01:39:50
-categories: jekyll portfolio
+categories: jekyll education
 description: "A single page application made with the MEAN stack made by only me"
 status: draft
 

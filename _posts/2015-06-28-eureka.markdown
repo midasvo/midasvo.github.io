@@ -2,7 +2,7 @@
 layout: post
 title:  "Eureka"
 date:   2013-12-6 01:39:50
-categories: jekyll portfolio
+categories: jekyll education
 description: "Prototyping, community centered development, and JavaScript"
 status: draft
 images:
