@@ -13,9 +13,9 @@ images:
     title: bash
 
 ---
-# Table of Contents
-1. [Requirements](#requirements)
-2. [Basics](#basics)
+
+* TOC
+{:toc}
 
 # Requirements
 
@@ -39,7 +39,7 @@ The tutorials assumes:
 
 # Basics
 
-This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script. 
+This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script.
 
 #### How to move around
 
@@ -53,7 +53,7 @@ Use `ls` or `ls -l` to display the directory content
 
 Use `cd DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a specific directory from the current working directory
 
-Use `cd /ROOTDIRECTORYNAME/DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a specific directory from the root directory 
+Use `cd /ROOTDIRECTORYNAME/DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a specific directory from the root directory
 
 #### How to get your current directory
 
@@ -62,7 +62,7 @@ Use `cd /ROOTDIRECTORYNAME/DIRECTORYNAME/SUBDIRECTORYNAME` to traverse to a spec
 #### Creating a script
 `sudo nano /#@PATHNAME@#/#@SCRIPT@#`
 
-After running the nano command we can start editing our script. 
+After running the nano command we can start editing our script.
 
 #### The script
 
@@ -100,14 +100,14 @@ By running that in the command line we create the '#@ALIAS@#' alias which will e
 
 User input typed after the script call can be accessed by the dollar sign, an example:
 
-We create the following script: 
+We create the following script:
 
 ```
 #!/bin/bash
 echo "The answer to the question of $2 is $1."
 ```
 
-Which will output "The answer to the question life is 42." if called as follows: 
+Which will output "The answer to the question life is 42." if called as follows:
 
 `#@ALIAS@# 42 life`
 
@@ -119,4 +119,3 @@ new inputBinder("pathname", ['div', 'p'], "#@PATHNAME@#", "dynamic-text-template
 new inputBinder("alias", ['div', 'p'], "#@ALIAS@#", "dynamic-text-template-alias");
 new inputBinder("script", ['div', 'p'], "#@SCRIPT@#", "dynamic-text-template-script");
 </script>
-
