@@ -14,6 +14,8 @@ images:
 
 ---
 
+# Useful Bash!
+
 * TOC
 {:toc}
 
@@ -24,6 +26,8 @@ The tutorials assumes:
 - Ubuntu 16.04
 
 #### Customization
+
+
 <div class="custom-params">
 <div>
 	<div>Pathname: </div><input type="text" name="pathname" id="pathname" value="path/toscript">
@@ -39,7 +43,7 @@ The tutorials assumes:
 
 # Basics
 
-This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script.
+This chapter shows you the basics of how to move around a terminal, how to create a bash script, how to run a bash script, and how to alias the bash script (first temporarily, and then permanently).
 
 #### How to move around
 
@@ -112,6 +116,82 @@ Which will output "The answer to the question life is 42." if called as follows:
 `#@ALIAS@# 42 life`
 
 [Download the script here](/assets/scripts/UsefulBash/dontpanic.sh)
+
+#### Making the alias permanent
+
+Once you terminate your SSH session your alias is lost. The alias can be made permanent by altering the "[bashrc](https://www.lifewire.com/bashrc-file-4101947)" file.
+
+The file is located at `~/.bashrc`, you can edit it using any text editor.
+
+`sudo nano ~/.bashrc`
+
+[Here is a link to a default bashrc file as example](https://gist.githubusercontent.com/midasvo/f3f49c12681d5e8d2d9a636b756d8b8b/raw/93a33aa5f1893f46773483250214f8b8b496a270/.bashrc)
+
+As you can see in the example aliases are defined on a new line, regardless the place.
+```
+  # some more ls aliases
+  alias ll='ls -alF'
+  alias la='ls -A'
+  alias l='ls -CF'
+```
+
+So if we want to make our alias persistent we need to add
+
+`alias #@ALIAS@#='. /#@PATHNAME@#/#@SCRIPT@#'`
+
+anywhere in the file - as long as it is on a new line.
+
+
+After saving the file using CTRL+X Y ENTER we need to run our bashrc file
+
+`. ~/.bashrc`
+
+Which finalizes our changes without having to terminate and reconnect our session.
+
+### A better way!
+
+So now we have seen how to add the alias to the bashrc file, however it would be better to keep these aliases in a seperate file. Firstly because it is easier to edit, and secondly because it is awesome for portability. If you have certain aliases you use a lot, push the file to version control and keep access to it even on other systems.
+
+We need to uncomment or add the following code to reference our not-yet-created bash_aliases file.
+
+```
+  if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+  fi
+```
+
+Which simply states that if the bash_aliases file is found, run the bash_aliases file - effectively including aliases created in the bash_aliases file.
+
+Create the bash_aliases file
+
+`sudo nano ~/.bash_aliases`
+
+Copy the following code block (when in clipboard, rightclick on terminal editor window) and save the file (CTRL+X, Y, ENTER).
+
+```
+  # Bash alias definitions
+  alias #@ALIAS@#='. /#@PATHNAME@#/#@SCRIPT@#'
+```
+
+After adding an alias we need to run the bashrc file.
+
+`. ~/.bashrc`
+
+From now on aliases defined in the bash_aliases file are permanent.
+
+A good alias to add secondly is the one for rerunning the bashrc file
+
+`sudo nano ~/.bash_aliases`
+
+Add the following line:
+
+`alias updatealiases='. ~/.bashrc'`
+
+Save the file (CTRL+X, Y, ENTER).
+
+Use `. ~/.bashrc` for the last time and you are ready to add more aliases.
+
+Now, when you add a new alias you only have to run the `updatealiases` command.
 
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
