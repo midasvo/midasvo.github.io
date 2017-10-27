@@ -193,6 +193,45 @@ Use `. ~/.bashrc` for the last time and you are ready to add more aliases.
 
 Now, when you add a new alias you only have to run the `updatealiases` command.
 
+## Executing aliases periodically
+
+Sometimes you want a script to run at certain times, in this case we do not even have to reference the script - but simply use the alias.
+
+### CRON
+
+Start editing your cron configuration by running `crontab -e`.
+
+```
+  The time and date fields are:
+
+         field          allowed values
+         -----          --------------
+         minute         0-59
+         hour           0-23
+         day of month   1-31
+         month          1-12 (or names, see below)
+         day of week    0-7 (0 or 7 is Sunday, or use names)
+```
+
+An example cron command would be:
+
+`0 1 * * * . /#@PATHNAME@#/#@SCRIPT@#`
+
+(remember the `.` is part of the command because it says `execute the script at the following path`.)
+
+`<minute> <hour> <day_of_month> <month> <day_of_week> <command>`  
+
+```
+  0                                   |                minute
+  1                                   |                hour
+  *                                   |                any
+  *                                   |                any
+  *                                   |                any
+  /#@PATHNAME@#/#@SCRIPT@#          |                command
+```
+
+This script runs on the 0th minute, every 1 hour, on any day, any month, and any day of the week. In other words, every hour, forever.
+
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
 new inputBinder("pathname", ['div', 'p'], "#@PATHNAME@#", "dynamic-text-template-pathname");
