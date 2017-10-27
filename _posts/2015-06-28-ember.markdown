@@ -21,6 +21,6 @@ A major part of the project revolved around researching user experience and turn
 
 Because this project was the first real taste of MEAN I've gotten, I chose to kick-start the project and make up for lost time using the Yeoman generator for scaffolding and [meanjs](http://meanjs.org) because of its superior documentation.
 
-We had a very short development time so a lot of the really cool features we would've liked such as meta-games are not implemented. The main feature is the ability to use the canvas to create a custom Pokemon users sliders for ligaments. The user can save the image and name the Pokemon. Stats are generated at random. 
+We had a very short development time so a lot of the really cool features we would've liked such as meta-games are not implemented. The main feature is the ability to use the canvas to create a custom Pokemon users sliders for ligaments. The user can save the image and name the Pokemon. Stats are generated at random.
 
-Because we've had a set of custom Pokemon images designed and implemented I can't demo the program online (copyrights). 
+Because we've had a set of custom Pokemon images designed and implemented I can't demo the program online (copyrights).

@@ -2,7 +2,7 @@
 layout: post
 title:  "Bash"
 date:   2017-10-28 00:45:50
-categories: jekyll bash
+categories: jekyll bash featured
 description: "How to #! it."
 status: draft
 
