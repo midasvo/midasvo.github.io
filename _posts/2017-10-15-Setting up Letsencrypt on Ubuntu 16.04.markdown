@@ -14,6 +14,9 @@ images:
 
 ---
 
+*Updated: 19-01-2018 - bug prevents requesting cert, added webroot method which still works*
+
+
 
 #### Customization
 
@@ -40,7 +43,17 @@ Install certbot
 
 `sudo apt-get install python-certbot-apache -y`
 
-`sudo certbot --apache -d #@WEBSITE@#`
+~~`sudo certbot --apache -d #@WEBSITE@#`~~
+
+^above command no longer functioning (19-01-2018), will be fixed in future.
+
+However, there is another way to do this: webroot. You point certbot at your sites folder 
+
+`/var/www/#@WEBSITE@#` 
+
+You will have to answer a couple of questions (like do you want to force https) and it will be done!
+
+`certbot --authenticator webroot  --installer apache -d #@WEBSITE@#`
 
 Setup renewal
 
