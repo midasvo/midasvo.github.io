@@ -76,7 +76,11 @@ Since this is our first website, we will add a simple `index.html` file to our D
 </html>
 ```
 
+In order to activate apache2 sites we need to add a .conf file to the `sites-available` directory. We can make a copy of the default .conf file and rename it using the following command.
+
 `sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/#@WEBSITE@#.conf`
+
+Before we can activate the .conf file we need to amend some variables, open the file using nano.
 
 `sudo nano /etc/apache2/sites-available/#@WEBSITE@#.conf`
 
@@ -86,11 +90,30 @@ Since this is our first website, we will add a simple `index.html` file to our D
     ServerAlias www.#@WEBSITE@#
     DocumentRoot /var/www/#@WEBSITE@#
 ```
+The `ServerName`, `ServerAlias`, and `DocumentRoot` variables are the most important. Apply changes and hit `CTRL+X` enter `Y` and hit return. The file is saved and we can activate the site using `a2ensite`.
 
 `sudo a2ensite #@WEBSITE@#.conf`
 
+Remove the default .conf using the `a2dissite` command.
+
 `sudo a2dissite 000-default.conf`
+
+Restart apache2 and the Virtual Host is running!
 
 `sudo systemctl restart apache2`
 
-So now we have an apache2 Virtual Host pointing at the desired folder.
+Browse to #@WEBSITE@# and lo and behold, we have a Virtual Host.
+
+## Quickly adding new Virtual Hosts
+
+We have now setup apache2 and added our first Virtual Host, the next one will be much easier!
+
+<span>Second website: </span><input type="text" id="websitename2" name="websitename2" value="website2.tld" />
+
+### Generating creation scripts
+
+If you have a bunch of Virtual Hosts to create, it would be much easier to generate the scripts. You can write these scripts yourself using bash, or you can use a small utility I have created. [Click here to open the 'VHGenerator'](https://apps.midasvo.nl/VHGenerator). I plan to create an article detailing the process, for now the [Github repo](https://github.com/midasvo/VHGenerator) will have to do.
+
+### Quick commands
+
+Coming ASAP.
