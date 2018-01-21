@@ -1,9 +1,11 @@
 <h3 class="">Latest posts</h2>
-<ul>
-    {% for post in site.categories.featured %}
-    <a class="" href="{{ post.url | prepend: site.baseurl }}">
-         <h4>{{ post.title}}</h3>
-    </a>
 
-</ul>
-{% endfor %}
+    <ul>
+      {% for post in site.categories.featured %}
+      <li>
+        <a class="" href="{{ post.url | prepend: site.baseurl }}">
+             <h4>{{ post.title}}</h3>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>

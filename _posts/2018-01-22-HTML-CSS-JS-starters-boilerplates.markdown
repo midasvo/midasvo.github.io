@@ -1,10 +1,9 @@
 ---
 layout: post
 title:  "App: HTML / CSS / JS starters boilerplates"
-date:   2018-01-22 01:39:50
-categories: jekyll blog tutorial starters boilerplate html js css
+date:   2018-01-20 01:39:50
+categories: jekyll blog featured
 description: "A simple app to fetch starter / boilerplate sites. Basic HTML5, styled, and interactive."
-status: draft
 ---
 
 I often start side projects and every time I have to google standard HTML5 boilerplates. I might as well put some extra time into it and expose a few of my custom boilerplates.
