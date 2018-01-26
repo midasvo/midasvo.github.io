@@ -20,8 +20,10 @@ images:
 {:toc}
 
 ## Customization
-
-<span>Git repository: </span><input type="text" id="gitrepo" name="gitrepo" value="https://github.com/user/repo.git" />
+<div class="inputbinder">
+  <span>Git repository: </span>
+  <input type="text" id="gitrepo" name="gitrepo" value="https://github.com/user/repo.git" />
+</div>
 
 
 ## Starter commands

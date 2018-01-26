@@ -1,0 +1,9 @@
+.inputbinder {
+  display: flex
+  -ms-display: flex
+  flex-direction: column
+}
+
+.inputbinder input {
+  min-width: 200px
+}
