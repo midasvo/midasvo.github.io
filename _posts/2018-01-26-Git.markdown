@@ -76,25 +76,38 @@ Copy the link to your clipboard
 
 ```
   #!/bin/bash
-  ECHO "Pushing changes..."
-  git push https://#@GITUSERNAME@#:#@GITPASSWORD@#@github.com/#@GITREPO@#.git
-  ECHO "Script finished"
+  echo "Pushing changes..."
+  git push https://#@GITUSERNAME@#:#@GITPASSWORD@#@github.com/#@GITUSERNAME@#/#@GITREPO@#.git
+  echo "Script finished"
 ```
 
 Add the `push.sh` file to your `.gitignore`
 
 `echo '/push.sh' >> .gitignore`
 
+Make the `push.sh` file executable
+
+`sudo chmod +x push.sh`
+
+Add changed files to staging
+
 `git add .`
+
+Commit staged files
 
 `git commit -m "Initial commit"`
 
+Use `push.sh` to push changes
+
+`. push.sh`
+
+If you would like to use aliases for running the push command, check out my blog post about bash [here]("/blog/Useful-bash").
 
 However great using the Git command line is, there are plenty of other ways to work with the Git protocol. The, in my opinion, two greatest candidates are [GitKraken]() (cross-platform) and [SourceTree]() (Windows).
 
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
-  new inputBinder("gitrepo", ['div', 'p', 'code', 'span'], "#@GITREPO@#", "dynamic-text-template-pathname1");
-  new inputBinder("gitusername", ['div', 'p', 'code', 'span'], "#@GITUSERNAME@#", "dynamic-text-template-pathname2");
-  new inputBinder("gitpassword", ['div', 'p', 'code', 'span'], "#@GITPASSWORD@#", "dynamic-text-template-pathname3");
+  new inputBinder("gitrepo", ['div', 'p', 'code', 'span'], "#@GITREPO@#", "dynamic-text-template-pathname-gitrepo");
+  new inputBinder("gitusername", ['div', 'p', 'code', 'span'], "#@GITUSERNAME@#", "dynamic-text-template-pathname-gitusername");
+  new inputBinder("gitpassword", ['div', 'p', 'code', 'span'], "#@GITPASSWORD@#", "dynamic-text-template-pathname-gitpassword");
 </script>
