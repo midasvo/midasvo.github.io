@@ -88,7 +88,7 @@ However great using the Git command line is, there are plenty of other ways to w
 
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
-  new inputBinder("gitrepo", ['div', 'p', 'code', 'span'], "#@GITREPO@#", "dynamic-text-template-pathname");
-  new inputBinder("gitusername", ['div', 'p', 'code', 'span'], "#@GITUSERNAME@#", "dynamic-text-template-pathname");
-  new inputBinder("gitpassword", ['div', 'p', 'code', 'span'], "#@GITPASSWORD@#", "dynamic-text-template-pathname");
+  new inputBinder("gitrepo", ['div', 'p', 'code', 'span'], "#@GITREPO@#", "dynamic-text-template-pathname1");
+  new inputBinder("gitusername", ['div', 'p', 'code', 'span'], "#@GITUSERNAME@#", "dynamic-text-template-pathname2");
+  new inputBinder("gitpassword", ['div', 'p', 'code', 'span'], "#@GITPASSWORD@#", "dynamic-text-template-pathname3");
 </script>
