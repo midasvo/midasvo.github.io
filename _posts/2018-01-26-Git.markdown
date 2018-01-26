@@ -22,7 +22,7 @@ images:
 ## Customization
 <div class="inputbinder">
   <span>Git repository: </span>
-  <input type="text" id="gitrepo" name="gitrepo" value="https://github.com/user/repo.git" />
+  <input type="text" id="gitrepo" name="gitrepo" value="repo" />
 </div>
 
 <div class="inputbinder">
@@ -78,6 +78,10 @@ Copy the link to your clipboard
   git push https://#@GITUSERNAME@#:#@GITPASSWORD@#@github.com/#@GITREPO@#.git
   ECHO "Script finished"
 ```
+
+Add the `push.sh` file to your `.gitignore`
+
+`echo 'push.sh' >> .gitignore`
 
 `git add .`
 
