@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "Moving away from Github pages"
+date:   2018-01-26 00:00:00
+categories: jekyll github git featured
+description: "Git cheatsheet. "
+status: draft
+
+images:
+
+  - url: /assets/images/github/Octocat.jpg
+    alt: Moving away from Github pages
+    title: Moving away from Github pages
+
+---
+
+# Git Cheat sheet
+
+* TOC
+{:toc}
+
+## Customization
+
+<span>Git repository: </span><input type="text" id="gitrepo" name="gitrepo" value="https://github.com/user/repo.git" />
+
+
+## Starter commands
+
+### Adding an existing remote to an existing project directory
+
+Initialize a git repository in the directory
+
+`git init`
+
+Add the git repository as origin
+
+`git remote add origin #@GITREPO@#`
+
+
+<script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
+<script type='text/javascript'>
+  new inputBinder("gitrepo", ['div', 'p', 'code'], "#@GITREPO@#", "dynamic-text-template-pathname");
+</script>
