@@ -25,6 +25,17 @@ images:
   <input type="text" id="gitrepo" name="gitrepo" value="https://github.com/user/repo.git" />
 </div>
 
+<div class="inputbinder">
+  <span>Git username: </span>
+  <input type="text" id="gitusername" name="gitusername" value="username" />
+</div>
+
+I did add the option to inputbind your Git password, but if you do not feel comfortable inputting passwords into this site I recommend copying the command into a text editor and adding it there.
+
+<div class="inputbinder">
+  <span>Git password: </span>
+  <input type="text" id="gitpassword" name="gitpassword" value="password" />
+</div>
 
 ## Starter commands
 
@@ -38,8 +49,38 @@ Add the git repository as origin
 
 `git remote add origin #@GITREPO@#`
 
+Set branch to master
+
+`git config branch.master.remote origin`
+
+`git config branch.master.merge refs/heads/master`
+
+Pull any files from repository (like README or LICENSE files)
+
+`git pull`
+
+Create a push-helper
+
+`sudo nano push.sh`
+
+```
+  #!/bin/bash
+  ECHO "Pushing changes..."
+  git push https://#@GITUSERNAME@#:#@GITPASSWORD@#@github.com/#@GITREPO@#.git
+  ECHO "Script finished"
+```
+
+`git add .`
+
+`git commit -m "Initial commit"`
+
+
+
+
 
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
   new inputBinder("gitrepo", ['div', 'p', 'code'], "#@GITREPO@#", "dynamic-text-template-pathname");
+  new inputBinder("gitusername", ['div', 'p', 'code'], "#@GITUSERNAME@#", "dynamic-text-template-pathname");
+  new inputBinder("gitusername", ['div', 'p', 'code'], "#@GITPASSWORD@#", "dynamic-text-template-pathname");
 </script>
