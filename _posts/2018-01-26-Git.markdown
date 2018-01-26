@@ -16,6 +16,8 @@ images:
 
 # Git Cheat sheet
 
+** Still a work in progress :-) **
+
 * TOC
 {:toc}
 
@@ -81,7 +83,7 @@ Copy the link to your clipboard
 
 Add the `push.sh` file to your `.gitignore`
 
-`echo 'push.sh' >> .gitignore`
+`echo '/push.sh' >> .gitignore`
 
 `git add .`
 
