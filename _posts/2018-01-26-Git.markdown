@@ -72,12 +72,12 @@ Copy the link to your clipboard
 
 `sudo nano push.sh`
 
-
+```
   #!/bin/bash
   ECHO "Pushing changes..."
   git push https://#@GITUSERNAME@#:#@GITPASSWORD@#@github.com/#@GITREPO@#.git
   ECHO "Script finished"
-
+```
 
 `git add .`
 
