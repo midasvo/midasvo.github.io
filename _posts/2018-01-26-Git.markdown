@@ -30,7 +30,7 @@ images:
   <input type="text" id="gitusername" name="gitusername" value="username" />
 </div>
 
-I did add the option to inputbind your Git password, but if you do not feel comfortable inputting passwords into this site I recommend copying the command into a text editor and adding it there.
+I did add the option to inputbind your Git password, but if you do not feel comfortable inputting passwords into this site I recommend copying the command into a text editor and adding it there. You can also use Github's GUI to retrieve the SSH URL, how to do this is shown later.
 
 <div class="inputbinder">
   <span>Git password: </span>
@@ -61,6 +61,15 @@ Pull any files from repository (like README or LICENSE files)
 
 Create a push-helper
 
+Instead of using the inputbinder on this site to generate the Git URL you can also use the GUI to find the SSH url. Go to your repositories' page and click on SSH.
+
+![alt text](/assets/images/git-cheatsheet/use-ssh.png "Logo Title Text 1")
+
+Copy the link to your clipboard
+
+![alt text](/assets/images/git-cheatsheet/copy-to-clipboard.png "Logo Title Text 1")
+
+
 `sudo nano push.sh`
 
 ```
@@ -75,8 +84,7 @@ Create a push-helper
 `git commit -m "Initial commit"`
 
 
-
-
+However great using the Git command line is, there are plenty of other ways to work with the Git protocol. The, in my opinion, two greatest candidates are [GitKraken]() (cross-platform) and [SourceTree]() (Windows).
 
 <script src='https://rawgit.com/midasvo/inputbinderjs/master/inputBinder.js'></script>
 <script type='text/javascript'>
