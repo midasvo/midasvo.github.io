@@ -101,7 +101,7 @@ Use `push.sh` to push changes
 
 `. push.sh`
 
-If you would like to use aliases for running the push command, check out my blog post about bash [here]("/blog/Useful-bash").
+If you would like to use aliases for running the push command, check out my blog post about bash [here](Useful-bash).
 
 However great using the Git command line is, there are plenty of other ways to work with the Git protocol. The, in my opinion, two greatest candidates are [GitKraken]() (cross-platform) and [SourceTree]() (Windows).
 
