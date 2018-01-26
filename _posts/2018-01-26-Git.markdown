@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Moving away from Github pages"
+title:  "Git cheat sheet - most used commands"
 date:   2018-01-26 00:00:00
 categories: jekyll github git featured
 description: "Git cheatsheet. "
@@ -9,8 +9,8 @@ status: draft
 images:
 
   - url: /assets/images/github/Octocat.jpg
-    alt: Moving away from Github pages
-    title: Moving away from Github pages
+    alt: Git cheat sheet - most used commands
+    title: Git cheat sheet - most used commands
 
 ---
 
