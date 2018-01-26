@@ -50,3 +50,13 @@ $on-laptop:        1200px;
         "layout",
         "syntax-highlighting"
 ;
+/* Inputbinder specific */
+.inputbinder {
+  display: flex;
+  -ms-display: flex;
+  flex-direction: column;
+}
+
+.inputbinder input {
+  min-width: 200px;
+}
