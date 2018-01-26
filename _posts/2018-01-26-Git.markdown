@@ -82,5 +82,5 @@ Create a push-helper
 <script type='text/javascript'>
   new inputBinder("gitrepo", ['div', 'p', 'code'], "#@GITREPO@#", "dynamic-text-template-pathname");
   new inputBinder("gitusername", ['div', 'p', 'code'], "#@GITUSERNAME@#", "dynamic-text-template-pathname");
-  new inputBinder("gitusername", ['div', 'p', 'code'], "#@GITPASSWORD@#", "dynamic-text-template-pathname");
+  new inputBinder("gitpassword", ['div', 'p', 'code'], "#@GITPASSWORD@#", "dynamic-text-template-pathname");
 </script>
