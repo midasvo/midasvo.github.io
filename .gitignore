@@ -1,3 +1,5 @@
 _site/
-.sass-cache/push.sh
 /push.sh
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
