@@ -11,11 +11,9 @@ images:
 
 # To-do
 
-Do you ever get that feeling that you just want to start a blog?
+Do you ever get that feeling that you just want to start a blog? I'm going to kick off season 01 by just starting this. It will probably not be a very good read, but I just need to start somewhere. I'll put whatever I'm think or doing into these posts and hopefully I'll get further than 2 posts in a year. There is no deadline and I promise not to be overly critical of what I'll post.
 
-I'd like to challenge myself, while no one is reading this, to start a blog and just build stuff. How odd it may sound I think it will motivate me. Ofcourse I have my dayjob but honestly I've been trying to program stuff for me but it's not easy. It normally works like this: get a cool idea, think of cool new things to build and/or new use cases, forget about it.
-
-# Plans
+I'd like to challenge myself, while no one is reading this, to start a blog and just build stuff. How odd it may sound I think it will motivate me. Of course I have my day-job but honestly I've been trying to program stuff for me but it's not easy. It normally works like this: get a cool idea, think of cool new things to build and/or new use cases, forget about it.
 
 I would like to start off easy, build something barebones that just works and is deployable. Therefore the requirements are that it should be installable with one or two actions. A git clone and run. Or a docker image that needs a bit of config.
 
@@ -23,3 +21,9 @@ A good place to start would be a todo app. I mean that is pretty applicable to t
 
 
 So let's do it.
+
+# Currently
+
+I'm currently editing this post in Atom and using the terminal to commit which then updates my github-pages. Honestly I'd like to have a WYSIWYG editor for github-pages. Maybe it already exists, or maybe that's a project for the future.
+
+For fun, I'd like to start off with a JS todo app.
