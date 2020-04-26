@@ -1,6 +1,6 @@
 ---
 layout: dynamic_post
-title:  "S01 - E01 - Let's build a TODO app"
+title:  "S01 - E01 - Blastoff"
 date:   2020-04-26 00:00:00
 categories: blog
 description: "Do you ever get that feeling that you just want to start a blog?"
@@ -11,7 +11,7 @@ images:
 
 # To-do
 
-Do you ever get that feeling that you just want to start a blog? I'm going to kick off season 01 by just starting this. It will probably not be a very good read, but I just need to start somewhere. I'll put whatever I'm think or doing into these posts and hopefully I'll get further than 2 posts in a year. There is no deadline and I promise not to be overly critical of what I'll post.
+Do you ever get that feeling that you just want to start a blog? I'm going to kick off season 01 by just starting this. It will probably not be a very good read, but I just need to start somewhere. I'll put whatever I'm thinking or doing into these posts and hopefully I'll get further than 2 posts in a year. There is no deadline and I promise not to be overly critical of what I'll post.
 
 I'd like to challenge myself, while no one is reading this, to start a blog and just build stuff. How odd it may sound I think it will motivate me. Of course I have my day-job but honestly I've been trying to program stuff for me but it's not easy. It normally works like this: get a cool idea, think of cool new things to build and/or new use cases, forget about it.
 
@@ -27,3 +27,20 @@ So let's do it.
 I'm currently editing this post in Atom and using the terminal to commit which then updates my github-pages. Honestly I'd like to have a WYSIWYG editor for github-pages. Maybe it already exists, or maybe that's a project for the future.
 
 For fun, I'd like to start off with a JS todo app.
+
+
+
+
+# To-do app
+
+I copied over my starters/interactivejquery to make it a bit easier. I recommend anyone who likes to prototype stuff to either have their own starters suited to their needs or use scaffolding.
+
+The first thing I'll search for is how to store objects in local storage. We're going for a minimal but usable implementation. The trick to storing objects in local storage seems to be JSON.stringify: https://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
+
+We will need two methods to get and set our dataset:
+
+- localStorage.setItem('db', JSON.stringify(db));
+
+- JSON.parse(localStorage.getItem('db'));
+
+We will need to define the objects inside and write a class to deal with CRUD operations.
