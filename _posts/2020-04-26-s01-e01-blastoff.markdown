@@ -9,12 +9,17 @@ status: draft
 images:
 ---
 
+# To-do
+
 Do you ever get that feeling that you just want to start a blog?
 
 I'd like to challenge myself, while no one is reading this, to start a blog and just build stuff. How odd it may sound I think it will motivate me. Ofcourse I have my dayjob but honestly I've been trying to program stuff for me but it's not easy. It normally works like this: get a cool idea, think of cool new things to build && || new use cases, forget about it.
 
+# Plans
+
 I would like to start off easy, build something barebones that just works and is deployable. Therefore the requirements are that it should be installable with one or two actions. A git clone and run. Or a docker image that needs a bit of config.
 
 A good place to start would be a todo app. I mean that is pretty applicable to the situation right?
+
 
 So let's do it.
