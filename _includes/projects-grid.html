@@ -5,22 +5,20 @@
   <li class="projects-grid">
 
     {% for post in site.categories.portfolio limit:2 %}
-    <a class="" href="{{ post.url | prepend: site.baseurl }}">
       <ul class="grid_item">
-       <li class="project-title">
-         <h3>{{ post.title}}</h3>  
-         <p class="project-description">
-           {{post.description}}
-         </p>    
-       </li>
+          <li class="project-title">
+              <h3>{{ post.title}}</h3>
+              <p class="project-description">
+                  {{post.description}}
+              </p>
+          </li>
 
-       <li class="img">
-        {% assign image = post.images[0] %}
-        {% include image.html image=image %}        
-      </li>
-    </a>
-  </li>
-
+          <li class="img">
+              {% assign image = post.images[0] %}
+              {% include image.html image=image %}
+          </li>
+          </li>
+      </ul>
 </ul>
 
 {% endfor %}

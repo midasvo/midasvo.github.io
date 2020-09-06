@@ -1,10 +1,10 @@
-<h3 class="">Latest posts</h2>
+<div class="">Latest posts</div>
 
     <ul>
       {% for post in site.categories.featured %}
       <li>
         <a class="" href="{{ post.url | prepend: site.baseurl }}">
-             <h4>{{ post.title}}</h3>
+             <h3>{{ post.title}}</h3>
         </a>
       </li>
       {% endfor %}
