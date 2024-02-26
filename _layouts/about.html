@@ -3,29 +3,8 @@ layout: default
 ---
 
 <p>
-	I'm a <span class='dynamicBirthday'></span> year old web- and software developer.
+	I'm a <span class='year'></span> year old web- and software developer.
 	I graduated with a BSc in Informatica (Software Engineering) at the University of Applied Science of Arnhem and Nijmegen <a href="https://han.nl">(HAN)</a>.
-</p>
-
-<p>
-	During my studies I worked on databases, Java, SQL, network infrastructure, and other web-related tools (HTML, JS, CSS, etc..).
-	I minored in Business Intelligence, setting up a Data Warehouse using SSIS, SASS, Qlickview, and PowerShell.
-</p>
-
-<p>
-	I completed my third year internship and graduation internship in Den Bosch,
-	at <a href="http://tax-model.com">TaxModel</a>. Creating an SSO and data synchronisation application in C# ASP.NET MVC (using WCF for services)
-	during my third year internship. The graduation internship consisted of creating an application for benchmarking -
-	creating (micro) services for webcrawling, translating, and Excel parsing.
-</p>
-
-<p>
-	Since 2018 I started working at <a href="https://www.gxsoftware.com/">GX Software</a> in Nijmegen.
-	I have since then switched back to Java after spending the previous years using C#.
-</p>
-
-<p>
-	I am currently working at EyeQuestion :)
 </p>
 
 <h4>Besides</h4>
@@ -44,10 +23,10 @@ layout: default
 })();
 
 function setAge() {
-	document.getElementsByClassName("dynamicBirthday")[0].innerHTML = getDynamicAge(1992, 03, 04);
+	document.getElementsByClassName("year")[0].innerHTML = calculateYear(1992, 03, 04);
 }
 
-function getDynamicAge(year, month, day) {
+function calculateYear(year, month, day) {
 	var birthDate = new Date(year, month, day);
 	var currentDate = new Date();
 	var difference = currentDate - birthDate;
