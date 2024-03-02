@@ -8,9 +8,7 @@ permalink: /uses/
 
 A living document of what I currently use. 
 
-[Home Icon](https://cdn.iconscout.com/icon/free/svg-icon-home-3-256.png)
-
-
+[H] selfhosted
 
 * **Code Editors**
     + [Intellij Ultimate]()
@@ -18,36 +16,15 @@ A living document of what I currently use.
 * **Version Control Systems**
     + [Git](https://git-scm.com/)
     + [GitHub](https://github.com/)
-    +  [Onedev]() [Home Icon]({width: 20; height: 20}) 
+    +  [Onedev]() [H]
 
 * **Task Management Tools**
-    + [Trello](https://trello.com/)
+    + [Todoist]()
 
 * **Communication Platforms**
     + [Slack](https://slack.com/)
-    + [Google Workspace](https://workspace.google.com/)
-
-* **Automation Tools**
-    + [Zapier](https://zapier.com/)
-
-* **Time Management Apps**
-    + [Todoist](https://todoist.com/)
-    + [Fantastical](https://fantastical.com/)
+    + [Telegram]()
+    + [Fastmail]()
 
 * **Cloud Storage**
-    + [Dropbox](https://dropbox.com/)
-    + [Google Drive](https://drive.google.com/)
-
-* **Bookmark Manager**
-    + [Evernote](https://evernote.com/)
-    + [Mozilla Firefox's built-in Bookmark Manager](https://support.mozilla.org/en-US/kb/how-to-import-export-bookmarks-in-firefox)
-
-* **Online Learning Platforms**
-    + [Coursera](https://www.coursera.org/)
-    + [Udemy](https://www.udemy.com/)
-    + [Codecademy](https://www.codecademy.com/)
-
-* **Personal Development Resources**
-    + [Stack Overflow](https://stackoverflow.com/)
-    + [Stack Overflow Careers](https://careers.stackoverflow.com/)
-    + [The Dad Blueprint](https://thedadblueprint.com/)
+    + [AWS Glacier]()
