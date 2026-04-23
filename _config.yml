@@ -1,10 +1,9 @@
 # Site settings
 title: Midas van Oene
 email: contact@midasvo.nl
-description: > # this means to ignore newlines until "baseurl:"
-  Made with <a href='http://jekyllrb.com' target='_blank'>Jekyll</a>.
+description: "Personal site of Midas van Oene — Dutch web and software developer writing notes on Linux, self-hosting, web development, DevOps, and side projects."
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://midasvo.nl" # the base hostname & protocol for your site
+url: "https://midasvo.nl" # the base hostname & protocol for your site
 paginate: 5
 github_username:  MidasVO
 linkedin_username:  midasvanoene

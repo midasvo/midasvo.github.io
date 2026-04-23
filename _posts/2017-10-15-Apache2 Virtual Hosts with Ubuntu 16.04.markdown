@@ -1,5 +1,6 @@
 ---
 layout: dynamic_post
+inputbinder: true
 title:  "Apache2 Virtual Hosts with Ubuntu 16.04"
 date:   2017-10-16 01:39:50
 categories: jekyll apache2 virtual hosts vh ubuntu 16 16.04

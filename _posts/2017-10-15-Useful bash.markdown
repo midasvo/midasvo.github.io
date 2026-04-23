@@ -1,5 +1,6 @@
 ---
 layout: post
+inputbinder: true
 title:  "Bash"
 date:   2017-10-28 00:45:50
 categories: jekyll bash featured

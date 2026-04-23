@@ -1,5 +1,6 @@
 ---
 layout: post
+inputbinder: true
 title:  "Git cheat sheet - most used commands"
 date:   2018-01-26 00:00:00
 categories: jekyll github git featured
