@@ -2,7 +2,7 @@
 <html lang="en">
 {% include head.html %}
 
-<body class="flex-container">
+<body class="flex-container{% if page.layout %} layout-{{ page.layout }}{% endif %}{% if page.title %} page-{{ page.title | slugify }}{% endif %}">
   {% include header.html %}
   <div class="page-content">
     <div class="wrapper flex-content">

@@ -17,9 +17,10 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
+    font-weight: 400;
+    font-feature-settings: "cv11", "ss01";
+    color: var(--fg);
+    background-color: var(--bg);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -80,7 +81,13 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: 600;
+}
+
+h1 {
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
 }
 
 
@@ -89,15 +96,11 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: var(--link);
     text-decoration: none;
 
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
-
     &:hover {
-        color: $text-color;
+        color: var(--fg);
         text-decoration: underline;
     }
 }
@@ -108,8 +111,8 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: var(--muted);
+    border-left: 4px solid var(--border);
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -128,9 +131,9 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid var(--border);
     border-radius: 3px;
-    background-color: #eef;
+    background-color: var(--code-bg);
 }
 
 code {
@@ -196,9 +199,5 @@ pre {
         width: 16px;
         height: 16px;
         vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
     }
 }

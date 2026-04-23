@@ -3,23 +3,17 @@
 ---
 @charset "utf-8";
 
+@import "tokens";
 
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+
+// Non-color variables
+$base-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+$base-font-size:   17px;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$base-line-height: 1.6;
 
 $spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
 $content-width:    800px;
@@ -45,6 +39,8 @@ $on-laptop:        1200px;
 
 
 
+@import "fonts";
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
@@ -65,7 +61,7 @@ $on-laptop:        1200px;
 /* Home */
 .home-hero .tagline {
   font-size: 1.25em;
-  color: $grey-color-dark;
+  color: var(--muted);
   margin-top: -0.25em;
 }
 
@@ -83,22 +79,22 @@ $on-laptop:        1200px;
 }
 
 .cta-primary {
-  background-color: $brand-color;
-  color: #fff;
+  background-color: var(--accent);
+  color: var(--on-accent);
   padding: 0.6em 1.2em;
   border-radius: 4px;
   font-weight: 500;
 
   &:hover,
   &:focus {
-    background-color: darken($brand-color, 10%);
-    color: #fff;
+    background-color: var(--accent-hover);
+    color: var(--on-accent);
     text-decoration: none;
   }
 }
 
 .cta-secondary {
-  color: $brand-color;
+  color: var(--link);
   text-decoration: underline;
 }
 
@@ -116,8 +112,10 @@ $on-laptop:        1200px;
   }
 
   .meta {
-    color: $grey-color;
+    color: var(--muted);
     font-size: $small-font-size;
     margin-left: 0.5em;
   }
 }
+
+@import "print";

@@ -2,8 +2,8 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
+    border-top: 5px solid var(--fg);
+    border-bottom: 1px solid var(--border);
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -19,7 +19,7 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: var(--fg);
     }
 }
 
@@ -33,7 +33,7 @@
         border: 0;
         padding: 0;
         cursor: pointer;
-        color: $grey-color-dark;
+        color: var(--fg);
         line-height: 1;
     }
 
@@ -53,7 +53,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: var(--fg);
         line-height: $base-line-height;
     }
 }
@@ -73,8 +73,8 @@
             top: 56px;
             right: 0;
             min-width: 160px;
-            background-color: $background-color;
-            border: 1px solid $grey-color-light;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
             padding: $spacing-unit / 2;
             z-index: 10;
 
@@ -101,7 +101,7 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px solid var(--border);
     padding: $spacing-unit 10;
 }
 
@@ -118,7 +118,7 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
+    color: var(--muted);
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
@@ -190,7 +190,7 @@
 
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    color: var(--muted);
 }
 
 .post-link {
@@ -209,8 +209,9 @@
 
 .post-title {
     font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
 
     @include media-query($on-laptop) {
         font-size: 36px;
@@ -273,11 +274,11 @@
     float: left;
     margin: 10px;
     &:hover {
-        color:#7889CC;
+        color: var(--accent);
     }
     @include media-query($on-palm) {
         width: 100%;
-        border-bottom: 1px dotted black;
+        border-bottom: 1px dotted var(--border);
 
     }
 }
