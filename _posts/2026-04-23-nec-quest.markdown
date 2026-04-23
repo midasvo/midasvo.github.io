@@ -1,0 +1,106 @@
+---
+layout: post
+title:  "Two player IDs in an if statement"
+date:   2026-04-23 10:00:00
+categories: blog featured
+description: "Shipping nec.quest, a Big Five personality quiz matching NEC Nijmegen fans to players — two weeks, three languages, one hardcoded score penalty."
+math: true
+---
+
+Somewhere in `src/lib/scoring/engine.ts` of my Big Five personality quiz that matches fans to NEC Nijmegen players, line 58 has an `if` block with two player IDs in it, multiplying their match score by `0.92`. After weeks of per-player biographic research and three deep-research reports, that's how I stopped Bryan Linssen and Dirk Proper from winning 14% of matches each.
+
+```js
+if (player.id === 71 /* Dirk Proper */ || player.id === 30 /* Bryan Linssen */) {
+  score *= 0.92; // 8% penalty
+}
+```
+
+This is [nec.quest](https://nec.quest).
+
+## The setup
+
+NEC in the cup final, two weeks out. I'm a supporter, I'm a dev, the itch is real. Scope locked in an afternoon: a Big Five personality quiz that matches you to one of the 27 players in the squad. Dutch, English, Japanese. Ship before Sunday or don't bother. Relevance drops to zero at the final whistle.
+
+## The research was thorough. The category error was still there.
+
+I didn't meet any of these guys. Nobody was letting me interview 27 footballers two weeks out from De Kuip. So Claude and Gemini deep research ran per-player biographic passes across Dutch newspapers, international press, Wikipedia, FotMob, WhoScored, Transfermarkt. [The reports are published alongside this post](#).
+
+Three examples.
+
+Thomas Ouwejan, left-back, 29. On the pitch: high work rate, 0.41 assists per 90 from overlapping runs. Off the pitch: he and his girlfriend hand-renovated the upper floor of an old butcher's shop in Westbeemster. Stripped six layers of wallpaper himself. There's the Conscientiousness anchor. The Workhorse.
+
+Dirk Proper, midfielder, 24. 167cm, 63kg, 81.7% pass accuracy. Active psychology student at Radboud, and the club reschedules his gym sessions around exams. Openness and Conscientiousness in one person.
+
+Tjaronn Chery, 37, captain. His father left when he was three and never came back. His brother is his professional agent. He talks openly about being the father figure in the dressing room he never had at home. The Patriarch.
+
+Research is real and deep. Here's the thing: none of it fixes the fundamental mismatch. Big Five is a self-report instrument, built to measure how *you* describe yourself. I'm feeding it third-party biographic inference about *them*. No amount of newspaper reading bridges that gap. Still absurd. Just earned absurdity now.
+
+## Turning biographies into magic numbers
+
+Research gives you anchors. It doesn't give you a number between 0 and 100.
+
+Ouwejan renovating a house, how high is his Conscientiousness? 75? 85? 92? No ground truth. Bryan Linssen sabotaging opposing goalkeeper interviews by lowering the mic stand: high Extraversion, or low Agreeableness through mischief? Pick your frame, get different numbers.
+
+Reasonable mappings, I'd say. Accurate, I wouldn't.
+
+## The scoring engine is 85 lines of literals
+
+```js
+const weight = 1 + Math.pow(extremityRaw / 50, 2) * 3;
+// ...
+return Math.pow(similarity, 3);
+```
+
+As math, the weight function is:
+
+$$W = 1 + 3 \left( \frac{E_{raw}}{50} \right)^2$$
+
+And the similarity:
+
+$$S = (1 - d_{norm})^3$$
+
+Per-trait weighted squared distance, where players sitting at the extremes of a trait (close to 0 or 100) get up to 4× weight. Normalize, invert, cube it. Combine with trigger keyword overlap at 75/25. That's the whole engine. Every weight is a bare literal. The `1`, the `3`, the `50`, the cubing. No config, no admin panel, no A/B.
+
+For a two-week fan project, a real weighting framework is overkill. A tuning constant is a hypothesis. Ship, measure, tune.
+
+## 100k Monte Carlo runs and the Linssen problem
+
+`scripts/analyze.ts` sweeps 100 → 1M runs and classifies players as "never matched", "<1%", or ">10%". First pass: Linssen and Proper eating 14% each. Both sit near the median on nearly every trait, so everyone is vaguely close to them.
+
+The right fix is a data-driven averageness metric: distance from the mean profile, penalize proportionally. The honest fix at midnight was `if (player.id === 71 || player.id === 30) score *= 0.92`. Two names in an if.
+
+Here's the one I'd argue against myself on. The calibration scripts reimplement the minigame scoring math instead of importing from the engine. They've drifted. `analyze.ts` uses `+ (score - 0.5) * 30`. The real code uses `pushVector(C, (score - 0.5) * 1.5)`. Different model. My calibration runs are against a version of the app that stopped existing two commits in. Real bug, not a cute tradeoff. One module from day one would've prevented it.
+
+## It had to run on a toaster
+
+SvelteKit with `adapter-static`, `ssr = false`, `prerender = true`. nginx:alpine in Docker, Oracle OCI always-free VPS, Cloudflare in front caching everything except the Umami endpoint. 27 prerendered result pages for OG tags, hydrate client-side from there. Self-hosted Forgejo Actions pushes the image on every commit to `main`.
+
+Shareable tactics URLs: formation index and player IDs joined by dots. No base64, no lz-string, no server state.
+
+```
+?t=0-1.4.3.14.11.6.23.25.30.10.18
+```
+
+33 characters of querystring. The full lineup a user shares is in the link itself, which means Cloudflare can cache it like any other URL. Zero DB rows.
+
+If your app has no real server state, don't build a backend. My origin barely noticed the launch because the CDN served nearly everything. There's a comment above `/_app/immutable/` in my `nginx.conf` telling future-me never to fall back to `index.html` on a miss: *"If the file is missing the build is stale. Return 404 so Cloudflare doesn't poison the JS URL with an HTML response."* Someone got burned. That someone was me.
+
+## Adding Japanese for a single striker
+
+620 translation keys per locale, compiled into 625 Paraglide message modules. NL, EN, JA.
+
+I didn't plan Japanese. It happened because of Koki Ogawa, NEC's Japanese striker. There's a small J-league-tracking audience that follows him, and the research had surfaced real color: the Japanese trio at the club hire a chef from Amsterdam to cook for them, Ogawa once almost bought weed ice cream for his daughter because he didn't recognize the smell. Adding Japanese meant those players got their own language in their own quiz. Mid-size Eredivisie club, 27 players, two weeks, three languages, one Japanese striker. Doing it anyway is the joke.
+
+The tell that Japanese is second-class in my own codebase: the helper script `add_new_strings.cjs` hardcodes Dutch and English only. Every new Japanese string gets added by hand afterward. I never generalized it. Shipping beat elegance.
+
+## What I'd do differently
+
+The date `🏆 19 april — NEC vs AZ — KNVB Bekerfinale — De Kuip` is hardcoded into a Svelte component. It ships forever until I edit the file. Should've been a config value with a `now > finalDate` guard.
+
+The calibration scripts should import from the engine, not reimplement it.
+
+The 2200ms "calculating your result" spinner is pure theater. The match is deterministic the moment the screen mounts. The setTimeout is the only reason anyone feels like something is happening. I'd keep the drama. I'd just admit it. If your result is ready in 4ms, nobody believes you tried.
+
+Zero tests. 113 commits. Fine for a two-week ship. Not fine for anything that stays alive, and this one is still live.
+
+[nec.quest](https://nec.quest). Take the quiz.
