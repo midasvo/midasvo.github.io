@@ -1,0 +1,12 @@
+# Recent updates shown on the homepage (latest 3).
+# Each item:
+#   date:  YYYY-MM-DD
+#   title: string
+#   url:   string (absolute or site-relative)
+#   kind:  string (e.g. post, release, project, talk)
+#
+# Example:
+# - date: 2026-04-20
+#   title: Launched PodRadar v2
+#   url: https://podradar.example.com
+#   kind: release

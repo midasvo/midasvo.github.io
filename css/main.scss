@@ -60,3 +60,63 @@ $on-laptop:        1200px;
 .inputbinder input {
   min-width: 200px;
 }
+
+/* Home */
+.home-hero .tagline {
+  font-size: 1.25em;
+  color: $grey-color-dark;
+  margin-top: -0.25em;
+}
+
+.home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-unit / 2;
+  align-items: baseline;
+  margin-top: $spacing-unit;
+}
+
+.cta {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cta-primary {
+  background-color: $brand-color;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  font-weight: 500;
+
+  &:hover,
+  &:focus {
+    background-color: darken($brand-color, 10%);
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.cta-secondary {
+  color: $brand-color;
+  text-decoration: underline;
+}
+
+.home-recent {
+  margin-top: $spacing-unit * 1.5;
+
+  .recent-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .recent-list li {
+    margin-bottom: $spacing-unit / 3;
+  }
+
+  .meta {
+    color: $grey-color;
+    font-size: $small-font-size;
+    margin-left: 0.5em;
+  }
+}
