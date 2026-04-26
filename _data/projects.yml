@@ -1,0 +1,22 @@
+# Projects shown on /projects/.
+# Each item:
+#   name:        string (display name)
+#   tagline:     string (one-line description)
+#   year:        string or number
+#   image:       site-relative path to a thumbnail
+#   image_alt:   alt text for the thumbnail
+#   url:         live site (optional)
+#   post_url:    site-relative path to a blog write-up (optional)
+#   tech:        array of strings (optional)
+
+- name: gamepass.fyi
+  tagline: Side-by-side Game Pass tier diff over the public xbox.com catalog API. Pick a FROM tier and a TO tier and see exactly which games you'd gain or lose.
+  year: 2026
+  image: /assets/images/gamepass_fyi/diff.png
+  image_alt: gamepass.fyi diff view comparing the Premium and Ultimate Game Pass catalogs
+  url: https://gamepass.fyi
+  post_url: /blog/gamepass-fyi
+  tech:
+    - Kotlin
+    - Spring Boot
+    - Postgres

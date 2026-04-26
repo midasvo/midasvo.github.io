@@ -1,27 +1,41 @@
 ---
 layout: default
 ---
-<h2 class="">Projects</h2>
+<h2 class="page-heading-projects">Projects</h2>
 
-Nothing worth mentioning
-
-<!--
-<ul>
-  <li class="projects-grid">
-    {% for post in site.categories.portfolio %}
-    <a class="" href="{{ post.url | prepend: site.baseurl }}">
-      <ul class="grid_item">
-        <li class="project-title">
-          <h3>{{ post.title}}</h3>
-          <p class="project-description">
-            {{post.description}}
-          </p>
-        </li>
-        <li class="img">
-          {% assign image = post.images[0] %} {% include image.html image=image %}
-        </li>
+{% if site.data.projects and site.data.projects.size > 0 %}
+<ul class="project-list">
+  {% for project in site.data.projects %}
+  <li class="project-card">
+    {% if project.image %}
+    <a class="project-card__media" href="{% if project.url %}{{ project.url }}{% elsif project.post_url %}{{ project.post_url | relative_url }}{% endif %}"{% if project.url %} rel="noopener"{% endif %}>
+      <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.name }}" loading="lazy">
     </a>
+    {% endif %}
+
+    <div class="project-card__body">
+      <h3 class="project-card__title">
+        {% if project.url %}<a href="{{ project.url }}" rel="noopener">{{ project.name }}</a>{% else %}{{ project.name }}{% endif %}
+        {% if project.year %}<span class="project-card__year">{{ project.year }}</span>{% endif %}
+      </h3>
+
+      <p class="project-card__tagline">{{ project.tagline }}</p>
+
+      {% if project.tech %}
+      <ul class="project-card__tech">
+        {% for t in project.tech %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+
+      <p class="project-card__links">
+        {% if project.url %}<a href="{{ project.url }}" rel="noopener">Visit {{ project.name }}</a>{% endif %}
+        {% if project.url and project.post_url %} <span aria-hidden="true">&middot;</span> {% endif %}
+        {% if project.post_url %}<a href="{{ project.post_url | relative_url }}">Read the write-up</a>{% endif %}
+      </p>
+    </div>
   </li>
-  </ul>
   {% endfor %}
--->
+</ul>
+{% else %}
+<p>Nothing worth mentioning yet.</p>
+{% endif %}
