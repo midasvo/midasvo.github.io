@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Ephyra: a Jellyfin client for Android and Android TV"
+date:   2026-11-12 10:00:00
+categories: blog featured
+permalink: /blog/ephyra
+description: "Ephyra is my free, open-source Jellyfin client for Android phones, tablets and Android TV. A fork of Findroid, formerly called Findroid CE."
+published: false
+---
+
+[Ephyra](https://midasvo.nl/ephyra/) is a Jellyfin client for Android phones, tablets and Android TV. It's free, open source under GPLv3, and I maintain it. It's a fork of [Findroid](https://github.com/jarnedemeulemeester/findroid) by Jarne Demeulemeester, and until version 2.0.0 it was called Findroid CE. If you searched for either of those names and ended up here: same app, same developer, new name.
+
+You need your own [Jellyfin](https://jellyfin.org/) server and Android 10 or newer. The code is at [github.com/midasvo/ephyra](https://github.com/midasvo/ephyra).
+
+![Ephyra on Android TV: the Home screen with a full-width backdrop for the focused movie and a row of suggestions below it]({{ "/assets/images/ephyra/tv-home.webp" | relative_url }})
+
+## Why a fork
+
+**[TODO Midas: why you started the fork.]** *Suggestion: two or three sentences on what you missed in Findroid in March 2026 (downloads? the TV box?), and why that became a fork and not a pull request.*
+
+Most of Ephyra is still Findroid, and I keep merging its changes in. What follows is what Ephyra adds on top.
+
+## What it adds
+
+Downloads. They resume when the connection drops, they can go to an SD card, and every download asks which quality you want: the original file, or a smaller version converted by the server. You can download a whole season or a whole series in one go. Smart Downloads is opt-in: it keeps the next episodes of what you're watching on the device and removes them once you've watched them.
+
+Playback. Dolby Vision plays directly where the device supports it, and Dolby Atmos goes through the device's own decoder. PGS, VobSub and DVB subtitles show up without the server having to transcode the video. You can style the subtitles (colour, outline, font, size) on both ExoPlayer and mpv, switch video quality during playback, and the app remembers your audio and subtitle choice per series.
+
+Profiles. Switching between the users on a server is one tap, and a profile can be locked with a PIN that stays on the device.
+
+Tablets and foldables. It's the phone app, laid out for the width it gets: a navigation rail, item pages with the poster beside the text, and a season as a list with the selected episode next to it.
+
+![Ephyra on a tablet in landscape: Home with a navigation rail on the left, a backdrop carousel and a Continue Watching row]({{ "/assets/images/ephyra/tablet-home.webp" | relative_url }})
+
+Android TV. This is a separate app, built for the remote. Trickplay thumbnails while seeking, refresh rate switching to match the video, a Watch Next row, a screensaver. It also runs on 32-bit boxes like the Xiaomi Mi Box.
+
+**[TODO Midas: which of these you care about most, and what you watch on.]** *Suggestion: one short paragraph, like the "thing I like most about this project" bit in the gamepass.fyi post. Which device, which feature was the hardest or the most satisfying.*
+
+## The name
+
+An ephyra is a young jellyfish, and a jellyfish is the animal in Jellyfin's logo. The app was Findroid CE until version 2.0.0; the update installs over the old one.
+
+**[TODO Midas: why you renamed it.]** *Suggestion: one or two lines on why "Findroid CE" had to go and why 2.0.0 was the moment.*
+
+## Getting it
+
+Ephyra isn't on Google Play yet. For now there are two ways to install it:
+
+- [Obtainium](https://github.com/ImranR98/Obtainium): add `https://github.com/midasvo/ephyra` and it keeps the app up to date. The [README](https://github.com/midasvo/ephyra#install) has the filters for phone and TV.
+- The [releases page](https://github.com/midasvo/ephyra/releases) on GitHub, if you'd rather download the APK yourself. The latest release is v2.4.4.
+
+An F-Droid listing has been [submitted](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/56048) and is waiting for review.
+
+If you're on Findroid CE, the update installs over it and keeps your login, settings and downloads. If you're on Findroid, Ephyra installs next to it.
+
+## What it doesn't do
+
+It collects nothing. No analytics, no account with me, no server of mine in the middle. The app only talks to the Jellyfin servers you add yourself.
+
+## What's next
+
+**[TODO Midas: what's next.]** *Suggestion: two or three things you actually plan to work on (Google Play? something from the issue tracker?), in the tone of the "What I might add" ending of the gamepass.fyi post.*
+
+Everything about the app is on [midasvo.nl/ephyra](https://midasvo.nl/ephyra/). Bugs and requests go to the [issue tracker](https://github.com/midasvo/ephyra/issues).
