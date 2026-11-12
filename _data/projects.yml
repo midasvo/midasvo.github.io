@@ -9,6 +9,19 @@
 #   post_url:    site-relative path to a blog write-up (optional)
 #   tech:        array of strings (optional)
 
+- name: Ephyra
+  tagline: A free, open-source Jellyfin client for Android phones, tablets and Android TV. A fork of Findroid (formerly Findroid CE) with resumable downloads, Dolby Vision direct play, profiles and a TV app built for the remote.
+  year: 2026
+  image: /assets/images/ephyra/tv-home.webp
+  image_alt: Ephyra's Android TV Home screen with a full-width backdrop for the focused movie and a row of suggestions
+  url: https://midasvo.nl/ephyra/
+  # post_url: /blog/ephyra   (add once the post is published)
+  tech:
+    - Kotlin
+    - Jetpack Compose
+    - ExoPlayer
+    - mpv
+
 - name: gamepass.fyi
   tagline: Side-by-side Game Pass tier diff over the public xbox.com catalog API. Pick a FROM tier and a TO tier and see exactly which games you'd gain or lose.
   year: 2026
