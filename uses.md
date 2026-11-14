@@ -1,39 +1,40 @@
 ---
-layout: default	
+layout: page
 title: Uses
 permalink: /uses/
+description: "The hardware, self-hosting setup and software I currently use, kept as a living document."
 ---
 
-# Uses
+A living document of what I currently use.
 
-A living document of what I currently use. 
+## Hardware
 
-### Hardware
+I use a Lenovo X1 Extreme (gen 1) with Pop!_OS. I've gone through many flavours of Linux but I ended up with Pop. Remind me not to get an NVIDIA-based system next.
 
-I use a Lenovo X1 Xtreme (gen 1) with PopOS! I've gone through many flavours
-of linux but I ended up with Pop. Remind me not to get a nvidia based system next.
+For my self-hosting needs I've got a Dell OptiPlex and a Synology DS1621+. I'd like to phase out the OptiPlex at some point because of the energy prices, but I need to upgrade the NAS's RAM first.
 
-For my selfhosting needs I've got a Dell optiplex and a Synology DS1621+. I'd like to
-phase out the optiplex at some point because of the energy prices but need to upgrade the
-NAS's RAM.
+## Software
 
-[H] selfhosted
+### Code editors
 
-* **Code Editors**
-    + [Intellij Ultimate]()
+- [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/)
 
-* **Version Control Systems**
-    + [Git](https://git-scm.com/)
-    + [GitHub](https://github.com/)
-    +  [Onedev]() [H]
+### Version control
 
-* **Task Management Tools**
-    + [Todoist]()
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [OneDev](https://onedev.io/) (self-hosted)
 
-* **Communication Platforms**
-    + [Slack](https://slack.com/)
-    + [Telegram]()
-    + [Fastmail]()
+### Task management
 
-* **Cloud Storage**
-    + [AWS Glacier]()
+- [Todoist](https://todoist.com/)
+
+### Communication
+
+- [Slack](https://slack.com/)
+- [Telegram](https://telegram.org/)
+- [Fastmail](https://www.fastmail.com/)
+
+### Cloud storage
+
+- [AWS Glacier](https://aws.amazon.com/s3/storage-classes/glacier/)

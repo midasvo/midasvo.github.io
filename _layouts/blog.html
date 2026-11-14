@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<div class="post">
-	<div>
-		<ul class="post-list">
-			{% for post in site.posts %}
-			<li>
-				<h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
-				<p>{{ post.description }}</p>
-				<span>{{ post.date | date_to_string }}</span>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-</div>
+<h1 class="page-title">Blog</h1>
+
+{{ content }}
+
+{% comment %} All posts, newest first, grouped by year. No status filtering: every post here is a live URL. {% endcomment %}
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in posts_by_year %}
+<section class="post-year" aria-labelledby="year-{{ year.name }}">
+  <h2 class="post-year__heading" id="year-{{ year.name }}">{{ year.name }}</h2>
+  <ul class="entry-list">
+    {% for post in year.items %}
+      {% include post-entry.html post=post %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

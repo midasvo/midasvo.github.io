@@ -14,16 +14,31 @@ layout: default
   </p>
 </section>
 
-{% if site.data.recent and site.data.recent.size > 0 %}
-  {% assign recent = site.data.recent | sort: 'date' | reverse %}
-<section class="home-recent">
-  <h2>Recent</h2>
-  <ul class="recent-list">
-    {% for item in recent limit:3 %}
-    <li>
-      <a href="{{ item.url }}">{{ item.title }}</a>
-      <span class="meta">{{ item.date | date: "%b %-d, %Y" }} &middot; {{ item.kind }}</span>
-    </li>
+{% comment %} Old posts with a custom `status: draft` key are still live, but kept off the homepage. {% endcomment %}
+{% assign home_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
+{% if home_posts.size > 0 %}
+<section class="home-section" aria-labelledby="home-writing">
+  <div class="home-section__head">
+    <h2 id="home-writing">Latest writing</h2>
+    <a class="home-section__more" href="{{ '/blog/' | relative_url }}">All posts &rarr;</a>
+  </div>
+  <ul class="entry-list">
+    {% for post in home_posts limit:3 %}
+      {% include post-entry.html post=post %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if site.data.projects and site.data.projects.size > 0 %}
+<section class="home-section" aria-labelledby="home-projects">
+  <div class="home-section__head">
+    <h2 id="home-projects">Projects</h2>
+    <a class="home-section__more" href="{{ '/projects/' | relative_url }}">All projects &rarr;</a>
+  </div>
+  <ul class="project-list project-list--compact">
+    {% for project in site.data.projects limit:2 %}
+      {% include project-card.html project=project heading_level=3 %}
     {% endfor %}
   </ul>
 </section>

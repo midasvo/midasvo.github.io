@@ -25,7 +25,7 @@
 - name: gamepass.fyi
   tagline: Side-by-side Game Pass tier diff over the public xbox.com catalog API. Pick a FROM tier and a TO tier and see exactly which games you'd gain or lose.
   year: 2026
-  image: /assets/images/gamepass_fyi/diff.png
+  image: /assets/images/gamepass_fyi/diff.webp
   image_alt: gamepass.fyi diff view comparing the Premium and Ultimate Game Pass catalogs
   url: https://gamepass.fyi
   post_url: /blog/gamepass-fyi
@@ -33,3 +33,14 @@
     - Kotlin
     - Spring Boot
     - Postgres
+
+- name: nec.quest
+  tagline: A Big Five personality quiz that matches NEC Nijmegen fans to one of the 27 players in the squad. Built in two weeks, in Dutch, English and Japanese.
+  year: 2026
+  url: https://nec.quest
+  post_url: /blog/nec-quest
+  tech:
+    - SvelteKit
+    - Paraglide
+    - Docker
+    - nginx

@@ -1,0 +1,43 @@
+{% comment %}
+  One project card (/projects/ and the homepage).
+  Usage: include project-card.html project=project heading_level=2
+  Must sit inside <ul class="project-list">. heading_level defaults to 2.
+{% endcomment %}
+{% assign card = include.project %}
+{% assign card_level = include.heading_level | default: 2 %}
+{% assign card_href = "" %}
+{% if card.url %}
+  {% assign card_href = card.url %}
+{% elsif card.post_url %}
+  {% assign card_href = card.post_url | relative_url %}
+{% endif %}
+<li class="project-card">
+  {% if card.image %}
+  {% if card_href != "" %}<a class="project-card__media" href="{{ card_href }}"{% if card.url %} rel="noopener"{% endif %}>{% else %}<div class="project-card__media">{% endif %}
+    <img src="{{ card.image | relative_url }}" alt="{{ card.image_alt | default: card.name }}" loading="lazy" decoding="async">
+  {% if card_href != "" %}</a>{% else %}</div>{% endif %}
+  {% endif %}
+
+  <div class="project-card__body">
+    <h{{ card_level }} class="project-card__title">
+      {% if card_href != "" %}<a href="{{ card_href }}"{% if card.url %} rel="noopener"{% endif %}>{{ card.name }}</a>{% else %}{{ card.name }}{% endif %}
+      {% if card.year %}<span class="project-card__year">{{ card.year }}</span>{% endif %}
+    </h{{ card_level }}>
+
+    <p class="project-card__tagline">{{ card.tagline }}</p>
+
+    {% if card.tech %}
+    <ul class="project-card__tech" aria-label="Built with">
+      {% for tech_item in card.tech %}<li>{{ tech_item }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if card.url or card.post_url %}
+    <p class="project-card__links">
+      {% if card.url %}<a href="{{ card.url }}" rel="noopener">Visit {{ card.name }}</a>{% endif %}
+      {% if card.url and card.post_url %} <span aria-hidden="true">&middot;</span> {% endif %}
+      {% if card.post_url %}<a href="{{ card.post_url | relative_url }}">Read the write-up</a>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+</li>

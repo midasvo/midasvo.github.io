@@ -43,6 +43,7 @@ ul, ol, dl, figure,
  */
 img {
     max-width: 100%;
+    height: auto;
     vertical-align: middle;
 }
 
@@ -57,6 +58,8 @@ figure > img {
 
 figcaption {
     font-size: $small-font-size;
+    color: var(--muted);
+    margin-top: 6px;
 }
 
 
@@ -82,12 +85,18 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
+    line-height: 1.25;
+    text-wrap: balance;
 }
 
 h1 {
     font-weight: 650;
     letter-spacing: -0.02em;
     line-height: 1.15;
+}
+
+h2 {
+    letter-spacing: -0.01em;
 }
 
 
@@ -108,6 +117,46 @@ a {
 
 
 /**
+ * Focus: a visible ring for keyboard users only
+ */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// The <main> target of the skip link is focused programmatically; no ring.
+main:focus {
+    outline: none;
+}
+
+
+
+/**
+ * Skip link: off-screen until focused
+ */
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    z-index: 100;
+    padding: 8px 14px;
+    border-radius: 4px;
+    background-color: var(--accent);
+    color: var(--on-accent);
+    font-weight: 500;
+    transform: translateY(-200%);
+
+    &:focus,
+    &:hover {
+        color: var(--on-accent);
+        transform: none;
+    }
+}
+
+
+
+/**
  * Blockquotes
  */
 blockquote {
@@ -115,7 +164,6 @@ blockquote {
     border-left: 4px solid var(--border);
     padding-left: $spacing-unit / 2;
     font-size: 18px;
-    letter-spacing: -1px;
     font-style: italic;
 
     > :last-child {
@@ -130,6 +178,7 @@ blockquote {
  */
 pre,
 code {
+    font-family: $code-font-family;
     font-size: 15px;
     border: 1px solid var(--border);
     border-radius: 3px;
@@ -138,16 +187,20 @@ code {
 
 code {
     padding: 1px 5px;
+    font-size: 0.875em;
 }
 
 pre {
     padding: 8px 12px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    line-height: 1.5;
 
     > code {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        font-size: inherit;
+        background-color: transparent;
     }
 }
 
@@ -157,33 +210,15 @@ pre {
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: $content-width - ($spacing-unit * 2);
     margin-right: auto;
     margin-left: auto;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
-    @extend %clearfix;
 
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
+    @include media-query($on-mobile) {
+        padding-right: 16px;
+        padding-left: 16px;
     }
 }
 
@@ -199,5 +234,21 @@ pre {
         width: 16px;
         height: 16px;
         vertical-align: middle;
+    }
+}
+
+
+
+/**
+ * Reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
     }
 }

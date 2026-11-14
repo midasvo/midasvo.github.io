@@ -6,6 +6,8 @@
 
     .site-header,
     .site-footer,
+    .skip-link,
+    .post-footer,
     nav,
     .no-print {
         display: none !important;
@@ -20,15 +22,21 @@
     // Expand external link URLs after the link text so printed pages stay
     // referenceable on blog posts and the /uses/ page.
     .layout-post a[href^="http"]::after,
-    .layout-dynamic_post a[href^="http"]::after,
     .page-uses a[href^="http"]::after {
         content: " (" attr(href) ")";
         font-size: 0.9em;
         font-style: italic;
     }
 
+    .post,
+    .home-hero {
+        max-width: none;
+    }
+
     pre,
-    blockquote {
+    blockquote,
+    img,
+    .project-card {
         page-break-inside: avoid;
     }
 }

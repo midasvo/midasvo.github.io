@@ -1,10 +1,9 @@
+<script>document.documentElement.className += ' js';</script>
 <header class="site-header">
+  <div class="wrapper site-header__inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-  <div class="wrapper">
-
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Main">
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Toggle navigation">
         <svg viewBox="0 0 18 15" width="24" height="20" aria-hidden="true">
           <path fill="currentColor" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
@@ -13,16 +12,23 @@
         </svg>
       </button>
 
+      {% comment %}
+        Explicit nav order. Each item is "Label|/url/". An item is marked
+        current when the page URL equals its URL (aria-current="page") or
+        starts with it, e.g. blog posts under /blog/ (aria-current="true").
+      {% endcomment %}
+      {% assign nav_items = "Blog|/blog/,Projects|/projects/,About|/about/,Uses|/uses/" | split: "," %}
       <ul id="site-nav-menu" class="nav-menu">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-          {% endif %}
+        {% for nav_item in nav_items %}
+          {% assign nav_parts = nav_item | split: "|" %}
+          {% assign nav_label = nav_parts[0] %}
+          {% assign nav_url = nav_parts[1] %}
+          {% assign nav_len = nav_url | size %}
+          {% assign nav_prefix = page.url | slice: 0, nav_len %}
+          <li><a class="page-link" href="{{ nav_url | relative_url }}"{% if page.url == nav_url %} aria-current="page"{% elsif nav_prefix == nav_url %} aria-current="true"{% endif %}>{{ nav_label }}</a></li>
         {% endfor %}
       </ul>
     </nav>
-
   </div>
-
 </header>
 <script src="{{ '/assets/scripts/nav-toggle.js' | relative_url }}" defer></script>

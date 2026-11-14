@@ -1,10 +1,11 @@
 # Site settings
 title: Midas van Oene
+author: Midas van Oene
+lang: en
 email: contact@midasvo.nl
-description: "Personal site of Midas van Oene — Dutch web and software developer writing notes on Linux, self-hosting, web development, DevOps, and side projects."
+description: "Personal site of Midas van Oene, senior Java engineer in Nijmegen. Write-ups of side projects and notes on software, Linux and self-hosting."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://midasvo.nl" # the base hostname & protocol for your site
-paginate: 5
 github_username:  MidasVO
 linkedin_username:  midasvanoene
 permalink: /blog/:title
@@ -14,8 +15,12 @@ kramdown:
   math_engine: null
 plugins:
   - jekyll-sitemap
-  - jekyll-paginate
-analytics :
-  provider : google
-  google :
-      tracking_id : 'UA-62348916-2'
+exclude:
+  - README.md
+  - .claude
+  - .gitignore
+  - push.sh
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

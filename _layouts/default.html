@@ -3,12 +3,13 @@
 {% include head.html %}
 
 <body class="flex-container{% if page.layout %} layout-{{ page.layout }}{% endif %}{% if page.title %} page-{{ page.title | slugify }}{% endif %}">
+  <a class="skip-link" href="#main">Skip to content</a>
   {% include header.html %}
-  <div class="page-content">
-    <div class="wrapper flex-content">
+  <main id="main" class="page-content" tabindex="-1">
+    <div class="wrapper">
       {{ content }}
     </div>
-  </div>
+  </main>
   {% include footer.html %}
 </body>
 

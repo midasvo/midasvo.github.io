@@ -1,66 +1,98 @@
 /**
+ * Page frame: footer sticks to the bottom on short pages
+ */
+.flex-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.page-content {
+    flex: 1;
+    padding: $spacing-unit 0 ($spacing-unit * 2);
+}
+
+
+
+/**
  * Site header
  */
 .site-header {
     border-bottom: 1px solid var(--border);
-    min-height: 56px;
+}
 
-    // Positioning context for the mobile navigation icon
-    position: relative;
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+    min-height: 56px;
 }
 
 .site-title {
     font-size: 26px;
-    line-height: 56px;
+    line-height: 1.2;
     letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
+    padding: 10px 0;
 
     &,
-    &:visited {
+    &:visited,
+    &:hover {
         color: var(--fg);
+        text-decoration: none;
     }
 }
 
 .site-nav {
-    float: right;
-    line-height: 56px;
+    position: relative;
 
     .nav-toggle {
         display: none;
         background: none;
         border: 0;
-        padding: 0;
+        padding: 10px;
+        margin-right: -10px;
         cursor: pointer;
         color: var(--fg);
         line-height: 1;
+        border-radius: 4px;
     }
 
     .nav-menu {
         list-style: none;
         margin: 0;
         padding: 0;
-    }
-
-    .nav-menu li {
-        display: inline-block;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 20px;
-        }
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 20px;
     }
 
     .page-link {
+        display: block;
+        padding: 6px 0;
         color: var(--fg);
-        line-height: $base-line-height;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 1px;
+
+        &:hover {
+            color: var(--accent);
+        }
+
+        // Current page (or section): accent colour plus an underline, so the
+        // state never relies on colour alone.
+        &[aria-current] {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
     }
 }
 
+// The collapsible menu only kicks in when JS is running (html.js is set by an
+// inline script in header.html). Without JS the links simply wrap.
 @include media-query($on-mobile) {
-    .site-nav {
-        position: relative;
-
+    .js .site-nav {
         .nav-toggle {
             display: inline-flex;
             align-items: center;
@@ -69,12 +101,14 @@
         .nav-menu {
             display: none;
             position: absolute;
-            top: 56px;
+            top: 100%;
             right: 0;
-            min-width: 160px;
+            min-width: 180px;
             background-color: var(--bg);
             border: 1px solid var(--border);
-            padding: $spacing-unit / 2;
+            border-radius: 8px;
+            padding: 8px ($spacing-unit / 2);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
             z-index: 10;
 
             &.is-open {
@@ -82,14 +116,8 @@
             }
         }
 
-        .nav-menu li {
-            display: block;
-            margin-left: 0;
-        }
-
         .page-link {
-            display: block;
-            padding: 6px 0;
+            padding: 10px 0;
         }
     }
 }
@@ -101,154 +129,409 @@
  */
 .site-footer {
     border-top: 1px solid var(--border);
-    padding: $spacing-unit 10;
-}
-
-.footer-heading {
-    font-size: 18px;
-    margin-bottom: $spacing-unit / 2;
-}
-
-.contact-list,
-.social-media-list {
-    list-style: none;
-    margin-left: 0;
-}
-
-.footer-col-wrapper {
+    padding: $spacing-unit 0;
     font-size: 15px;
     color: var(--muted);
-    margin-left: -$spacing-unit / 2;
-    @extend %clearfix;
 }
 
-.footer-col {
-    float: left;
-    margin-bottom: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
 }
 
-.footer-col-1 {
-    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-    width:         calc(35% - (#{$spacing-unit} / 2));
+.site-footer__copy {
+    margin: 0;
 }
 
-.footer-col-2 {
-    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-    width:         calc(20% - (#{$spacing-unit} / 2));
-}
+.site-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
 
-.footer-col-3 {
-    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-    width:         calc(45% - (#{$spacing-unit} / 2));
-}
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
 
-@include media-query($on-laptop) {
-    .footer-col-1,
-    .footer-col-2 {
-        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-        width:         calc(50% - (#{$spacing-unit} / 2));
-    }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-@include media-query($on-palm) {
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-        text-align: center;
+        &:hover {
+            color: var(--fg);
+        }
     }
 }
 
 
 
 /**
- * Page content
+ * Page titles (blog index, projects) and post headers
  */
-.page-content {
-    padding: $spacing-unit 0;
+.page-title,
+.post-title {
+    font-size: 42px;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: $spacing-unit;
+
+    @include media-query($on-palm) {
+        font-size: 34px;
+    }
 }
 
-.page-heading {
-    font-size: 20px;
+.post {
+    max-width: $measure;
 }
 
-.post-list {
-    margin-left: 0;
-    list-style: none;
+.post-header {
+    margin-bottom: $spacing-unit;
 
-    > li {
-        margin-bottom: $spacing-unit;
+    .post-title {
+        margin-bottom: 10px;
     }
 }
 
 .post-meta {
     font-size: $small-font-size;
     color: var(--muted);
-}
-
-.post-link {
-    display: block;
-    font-size: 24px;
+    margin-bottom: 0;
 }
 
 
 
 /**
- * Posts
+ * Long-form content (posts, about, uses, 404)
  */
-.post-header {
-    margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 42px;
-    font-weight: 650;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
-}
-
 .post-content {
     margin-bottom: $spacing-unit;
+    overflow-wrap: break-word;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    // Underline links in running text so they are not identified by colour alone.
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.15em;
+
+        &:hover {
+            text-decoration-thickness: 2px;
+        }
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote,
+    pre,
+    figure,
+    table,
+    .highlighter-rouge {
+        margin-bottom: $spacing-unit * 0.7;
+    }
+
+    li {
+        margin-bottom: 4px;
+    }
+
+    h2,
+    h3,
+    h4 {
+        line-height: 1.25;
+    }
 
     h2 {
-        font-size: 32px;
+        font-size: 28px;
+        margin-top: 1.6em;
+        margin-bottom: 0.5em;
 
-        @include media-query($on-laptop) {
-            font-size: 28px;
+        @include media-query($on-palm) {
+            font-size: 24px;
         }
     }
 
     h3 {
-        font-size: 26px;
+        font-size: 22px;
+        margin-top: 1.5em;
+        margin-bottom: 0.4em;
 
-        @include media-query($on-laptop) {
-            font-size: 22px;
+        @include media-query($on-palm) {
+            font-size: 20px;
         }
     }
 
     h4 {
-        font-size: 20px;
+        font-size: 18px;
+        margin-top: 1.4em;
+        margin-bottom: 0.4em;
+    }
 
-        @include media-query($on-laptop) {
-            font-size: 18px;
+    hr {
+        border: 0;
+        border-top: 1px solid var(--border);
+        margin: ($spacing-unit * 1.5) 0;
+    }
+
+    img {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+    // Tables scroll sideways instead of breaking the layout on small screens.
+    table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        border-collapse: collapse;
+        font-size: $small-font-size;
+        font-variant-numeric: tabular-nums;
+    }
+
+    th,
+    td {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        font-weight: 600;
+        border-bottom-width: 2px;
+    }
+}
+
+
+
+/**
+ * Post footer: older/newer links and back to the index
+ */
+.post-footer {
+    margin-top: $spacing-unit * 1.5;
+    padding-top: $spacing-unit;
+    border-top: 1px solid var(--border);
+}
+
+.post-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-unit / 2;
+    margin-bottom: $spacing-unit;
+
+    @include media-query($on-mobile) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.post-nav__link {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--fg);
+    transition: border-color 0.15s ease;
+
+    &:hover {
+        color: var(--fg);
+        text-decoration: none;
+        border-color: var(--accent);
+
+        .post-nav__title {
+            color: var(--accent);
         }
     }
 }
 
-/**
- * Projects page
- */
+.post-nav__next {
+    grid-column: 2;
+    text-align: right;
 
+    @include media-query($on-mobile) {
+        grid-column: auto;
+        text-align: left;
+    }
+}
+
+.post-nav__label {
+    display: block;
+    font-size: $small-font-size;
+    color: var(--muted);
+}
+
+.post-nav__title {
+    display: block;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.post-back {
+    margin: 0;
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists of posts (homepage, blog index)
+ */
+.entry-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.entry {
+    margin-bottom: $spacing-unit * 0.9;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.entry__title {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+
+    a {
+        color: var(--fg);
+
+        &:hover {
+            color: var(--accent);
+        }
+    }
+}
+
+.entry__date {
+    display: block;
+    font-size: $small-font-size;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.entry__desc {
+    margin: 4px 0 0;
+    max-width: $measure;
+}
+
+.post-year {
+    margin-top: $spacing-unit * 1.5;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.post-year__heading {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: $spacing-unit * 0.7;
+}
+
+
+
+/**
+ * Homepage
+ */
+.home-hero {
+    max-width: $measure;
+
+    h1 {
+        font-size: 42px;
+        margin-bottom: 8px;
+
+        @include media-query($on-palm) {
+            font-size: 34px;
+        }
+    }
+
+    .tagline {
+        font-size: 1.25em;
+        line-height: 1.4;
+        color: var(--muted);
+    }
+
+    > p:not(.home-cta) a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.15em;
+    }
+}
+
+.home-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit / 2;
+    align-items: baseline;
+    margin-top: $spacing-unit;
+}
+
+.cta {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cta-primary {
+    background-color: var(--accent);
+    color: var(--on-accent);
+    padding: 0.6em 1.2em;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.15s ease;
+
+    &:hover,
+    &:focus {
+        background-color: var(--accent-hover);
+        color: var(--on-accent);
+        text-decoration: none;
+    }
+}
+
+.cta-secondary {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.home-section {
+    margin-top: $spacing-unit * 2;
+}
+
+.home-section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+    margin-bottom: $spacing-unit * 0.7;
+
+    h2 {
+        font-size: 24px;
+        margin: 0;
+    }
+}
+
+.home-section__more {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Project cards (/projects/ and the homepage)
+ */
 .project-list {
     list-style: none;
     margin: 0;
@@ -268,7 +551,7 @@
     border-radius: 10px;
     overflow: hidden;
     background: var(--bg);
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    transition: border-color 0.15s ease;
 
     &:hover {
         border-color: var(--accent);
@@ -280,6 +563,7 @@
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background: var(--code-bg);
+    border-bottom: 1px solid var(--border);
 
     img {
         width: 100%;
@@ -348,80 +632,20 @@
     color: var(--muted);
 }
 
-/**
- * Projects Grid (legacy, unused)
- */
+// Homepage variant: a little tighter.
+.project-list--compact {
+    gap: $spacing-unit * 0.7;
 
-.projects-grid {
-    a { color: inherit; }
-    font-size: 15px;
-    @extend %clearfix;
-            list-style-type: none;
-
-    > ul {
-        list-style-type: none;
-            @include media-query($on-palm) {
-                margin-bottom: 30px;
-            }
-    }
-    @include media-query($on-palm) {
-        margin-left: -50px;
-
-    }
-}
-
-.grid_item {
-    width: 45%;
-    height: 100px;
-    float: left;
-    margin: 10px;
-    &:hover {
-        color: var(--accent);
-    }
-    @include media-query($on-palm) {
-        width: 100%;
-        border-bottom: 1px dotted var(--border);
-
-    }
-}
-
-
-
-.img {
-        width: 45%;
-        height: auto;
-}
-
-.project-title {
-        @include media-query($on-palm) {
-        text-align: left;
-
-    }
-    width: 55%;
-    height: 30px;
-    float: right;
-    text-align: center;
-
-    > ul {
-        list-style-type: none;
+    .project-card__body {
+        padding: ($spacing-unit / 2) ($spacing-unit / 1.5) ($spacing-unit / 1.5);
     }
 
-}
-
-.project-description {
-    margin-top: -15px;
-        @include media-query($on-palm) {
-        margin-left: -50px;
-
+    .project-card__title {
+        font-size: 19px;
     }
-}
 
-.flex-container {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.page-content {
-  flex: 1;
+    .project-card__tagline {
+        font-size: 15px;
+        line-height: 1.5;
+    }
 }
