@@ -5,9 +5,16 @@ layout: default
 
 {{ content }}
 
-{% comment %} All posts, newest first, grouped by year. No status filtering: every post here is a live URL. {% endcomment %}
+{% comment %}
+  All posts, newest first. Current posts are grouped by year; posts dated
+  before archive_before go into one "Archive" section at the end. Every post
+  stays a live URL. Keep archive_before in sync with index.html and feed.xml.
+{% endcomment %}
+{% assign archive_before = "2019" %}
 {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign has_archive = false %}
 {% for year in posts_by_year %}
+{% if year.name < archive_before %}{% assign has_archive = true %}{% continue %}{% endif %}
 <section class="post-year" aria-labelledby="year-{{ year.name }}">
   <h2 class="post-year__heading" id="year-{{ year.name }}">{{ year.name }}</h2>
   <ul class="entry-list">
@@ -17,3 +24,19 @@ layout: default
   </ul>
 </section>
 {% endfor %}
+
+{% if has_archive %}
+<section class="post-year post-archive" aria-labelledby="archive">
+  <h2 class="post-year__heading" id="archive">Archive</h2>
+  <p class="post-archive__note">These are older posts I&rsquo;ve kept online for reference. I no longer maintain them, so instructions and links may be out of date.</p>
+  <ul class="entry-list">
+    {% for year in posts_by_year %}
+      {% if year.name < archive_before %}
+        {% for post in year.items %}
+          {% include post-entry.html post=post %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

@@ -5,6 +5,9 @@ date:   2026-11-14 07:00:00
 categories: blog featured
 permalink: /blog/ephyra
 description: "Ephyra is my free, open-source Jellyfin client for Android phones, tablets and Android TV. A fork of Findroid, formerly called Findroid CE."
+image: /assets/images/ephyra/og.jpg
+image_width: 1200
+image_height: 630
 ---
 
 [Ephyra](https://midasvo.nl/ephyra/) is a Jellyfin client for Android phones, tablets and Android TV. It's free, open source under GPLv3, and I maintain it. It's a fork of [Findroid](https://github.com/jarnedemeulemeester/findroid) by Jarne Demeulemeester, and until version 2.0.0 it was called Findroid CE. If you searched for either of those names and ended up here: same app, same developer, new name.

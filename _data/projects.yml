@@ -3,7 +3,8 @@
 #   name:        string (display name)
 #   tagline:     string (one-line description)
 #   year:        string or number
-#   image:       site-relative path to a thumbnail
+#   image:       site-relative path to a card thumbnail (16:10 WebP, 800x500,
+#                in assets/images/project_thumbnails/)
 #   image_width:  integer, pixel width of the thumbnail (optional, prevents layout shift)
 #   image_height: integer, pixel height of the thumbnail (optional)
 #   image_alt:   alt text for the thumbnail
@@ -14,9 +15,9 @@
 - name: Ephyra
   tagline: A free, open-source Jellyfin client for Android phones, tablets and Android TV. A fork of Findroid (formerly Findroid CE) with resumable downloads, Dolby Vision direct play, profiles and a TV app built for the remote.
   year: 2026
-  image: /assets/images/ephyra/tv-home.webp
-  image_width: 1280
-  image_height: 720
+  image: /assets/images/project_thumbnails/ephyra.webp
+  image_width: 800
+  image_height: 500
   image_alt: Ephyra's Android TV Home screen with a full-width backdrop for the focused movie and a row of suggestions
   url: https://midasvo.nl/ephyra/
   post_url: /blog/ephyra
@@ -29,9 +30,9 @@
 - name: gamepass.fyi
   tagline: Side-by-side Game Pass tier diff over the public xbox.com catalog API. Pick a FROM tier and a TO tier and see exactly which games you'd gain or lose.
   year: 2026
-  image: /assets/images/gamepass_fyi/diff.webp
-  image_width: 1196
-  image_height: 1654
+  image: /assets/images/project_thumbnails/gamepass-fyi.webp
+  image_width: 800
+  image_height: 500
   image_alt: gamepass.fyi diff view comparing the Premium and Ultimate Game Pass catalogs
   url: https://gamepass.fyi
   post_url: /blog/gamepass-fyi
@@ -43,6 +44,10 @@
 - name: nec.quest
   tagline: A Big Five personality quiz that matches NEC Nijmegen fans to one of the 27 players in the squad. Built in two weeks, in Dutch, English and Japanese.
   year: 2026
+  image: /assets/images/project_thumbnails/nec-quest.webp
+  image_width: 800
+  image_height: 500
+  image_alt: "nec.quest's Dutch landing page: the question “Welke NEC-er ben jij?” under a red, green and black striped shield, with a Start de quiz button and NL, EN and Japanese language switches"
   url: https://nec.quest
   post_url: /blog/nec-quest
   tech:

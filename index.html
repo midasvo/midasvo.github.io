@@ -14,16 +14,26 @@ layout: default
   </p>
 </section>
 
-{% comment %} Old posts with a custom `status: draft` key are still live, but kept off the homepage. {% endcomment %}
-{% assign home_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
-{% if home_posts.size > 0 %}
+{% comment %}
+  Archived posts (dated before archive_before; see _layouts/blog.html) are
+  still live, but kept off the homepage. Posts are sorted newest first, so if
+  the newest post is not archived there is something to show.
+{% endcomment %}
+{% assign archive_before = "2019" %}
+{% assign newest_year = site.posts.first.date | date: "%Y" %}
+{% if site.posts.size > 0 and newest_year >= archive_before %}
 <section class="home-section" aria-labelledby="home-writing">
   <div class="home-section__head">
     <h2 id="home-writing">Latest writing</h2>
     <a class="home-section__more" href="{{ '/blog/' | relative_url }}">All posts &rarr;</a>
   </div>
   <ul class="entry-list">
-    {% for post in home_posts limit:3 %}
+    {% assign home_count = 0 %}
+    {% for post in site.posts %}
+      {% assign post_year = post.date | date: "%Y" %}
+      {% if post_year < archive_before %}{% continue %}{% endif %}
+      {% if home_count >= 3 %}{% break %}{% endif %}
+      {% assign home_count = home_count | plus: 1 %}
       {% include post-entry.html post=post %}
     {% endfor %}
   </ul>
@@ -36,8 +46,9 @@ layout: default
     <h2 id="home-projects">Projects</h2>
     <a class="home-section__more" href="{{ '/projects/' | relative_url }}">All projects &rarr;</a>
   </div>
+  {% comment %} Laid out for three: the first card full width, the other two side by side (see .project-list--compact). {% endcomment %}
   <ul class="project-list project-list--compact">
-    {% for project in site.data.projects limit:2 %}
+    {% for project in site.data.projects limit:3 %}
       {% include project-card.html project=project heading_level=3 %}
     {% endfor %}
   </ul>

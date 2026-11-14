@@ -4,7 +4,7 @@ Personal site of Midas van Oene, a senior Java engineer in Nijmegen: a short abo
 
 ## Structure
 
-- `_posts/` - blog posts, one Markdown file per post (`YYYY-MM-DD-slug.markdown`). Permalinks default to `/blog/:title` (see `_config.yml`). `_posts/drafts/` and `_posts/outdated/` hold unpublished or retired material.
+- `_posts/` - blog posts, one Markdown file per post (`YYYY-MM-DD-slug.markdown`). Permalinks default to `/blog/:title` (see `_config.yml`). Files in `_posts/drafts/` are not built (their names do not start with a date). Everything else, including `_posts/outdated/` and `_posts/education-projects/`, is live. Posts dated before 2019 are listed under "Archive" on `/blog/` and left out of the homepage and `feed.xml`; the cutoff is the `archive_before` variable in `_layouts/blog.html`, `index.html` and `feed.xml`.
 - `_data/projects.yml` - the list rendered on `/projects/`. The field reference is at the top of the file.
 - `_layouts/` and `_includes/` - page templates and partials. `_includes/head.html` holds the SEO metadata (title, Open Graph, Twitter cards, JSON-LD).
 - `_sass/` and `css/main.scss` - styles. Design tokens (colours, spacing, type) live in the Sass partials and are compiled into `/css/main.css`.
@@ -26,11 +26,11 @@ description: "One or two sentences, used for search results and link previews."
 ---
 ```
 
-The date must not be in the future, or Jekyll skips the post. Set `image: /assets/images/...` to override the social preview image, `math: true` to load KaTeX, and `permalink:` to pick a custom URL. Prefer WebP for screenshots and reference images through the `relative_url` filter. Paths are case-sensitive on GitHub Pages.
+The date must not be in the future, or Jekyll skips the post. Set `image: /assets/images/...` to override the social preview image (add `image_width` and `image_height` too, so the width/height metas are emitted; use a 1200x630 JPEG), `math: true` to load KaTeX, and `permalink:` to pick a custom URL. Prefer WebP for screenshots and reference images through the `relative_url` filter. Paths are case-sensitive on GitHub Pages.
 
 ## Adding a project
 
-Add an entry at the top of `_data/projects.yml` (newest first) with `name`, `tagline`, `year` and optionally `image`, `image_alt`, `url`, `post_url` and `tech`.
+Add an entry at the top of `_data/projects.yml` (newest first) with `name`, `tagline`, `year` and optionally `image`, `image_width`, `image_height`, `image_alt`, `url`, `post_url` and `tech`. For `image`, make a dedicated card thumbnail in `assets/images/project_thumbnails/`: a WebP cropped to 16:10 from the top of the screenshot, 800x500, quality about 80. The homepage shows the first three projects: the first full width, the next two side by side (`.project-list--compact`).
 
 ## Previewing locally
 

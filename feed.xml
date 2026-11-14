@@ -12,7 +12,14 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    {% comment %} The 10 newest posts, skipping the archive (posts dated before archive_before; see _layouts/blog.html). {% endcomment %}
+    {% assign archive_before = "2019" %}
+    {% assign feed_count = 0 %}
+    {% for post in site.posts %}
+      {% assign post_year = post.date | date: "%Y" %}
+      {% if post_year < archive_before %}{% continue %}{% endif %}
+      {% if feed_count >= 10 %}{% break %}{% endif %}
+      {% assign feed_count = feed_count | plus: 1 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{% if post.description %}{{ post.description | strip_html | xml_escape }}{% else %}{{ post.excerpt | strip_html | strip | xml_escape }}{% endif %}</description>

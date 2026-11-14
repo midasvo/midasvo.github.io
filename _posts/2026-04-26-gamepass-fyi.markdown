@@ -5,6 +5,9 @@ date:   2026-04-26 10:00:00
 categories: blog featured
 permalink: /blog/gamepass-fyi
 description: "Building gamepass.fyi — a side-by-side Game Pass tier diff tool over the public xbox.com catalog API."
+image: /assets/images/gamepass_fyi/og.jpg
+image_width: 1200
+image_height: 630
 ---
 
 Microsoft restructured Game Pass in October 2025. Three tiers now: Essential, Premium, Ultimate. The compare page on xbox.com lists feature differences (HDR, day-one releases, EA Play included) but doesn't list a single actual game. So if you're sitting there trying to decide whether the Ultimate delta is worth it, you can't see the catalogs side by side. You can browse them one at a time, and you can guess. That's the entire UX.

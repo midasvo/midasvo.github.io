@@ -15,7 +15,7 @@
 <li class="project-card">
   {% if card.image %}
   {% if card_href != "" %}<a class="project-card__media" href="{{ card_href }}"{% if card.url %} rel="noopener"{% endif %}>{% else %}<div class="project-card__media">{% endif %}
-    <img src="{{ card.image | relative_url }}" alt="{{ card.image_alt | default: card.name }}"{% if card.image_width and card.image_height %} width="{{ card.image_width }}" height="{{ card.image_height }}"{% endif %}{% if include.eager %} decoding="async"{% else %} loading="lazy" decoding="async"{% endif %}>
+    <img src="{{ card.image | relative_url }}" alt="{{ card.image_alt | default: card.name | escape }}"{% if card.image_width and card.image_height %} width="{{ card.image_width }}" height="{{ card.image_height }}"{% endif %}{% if include.eager %} decoding="async"{% else %} loading="lazy" decoding="async"{% endif %}>
   {% if card_href != "" %}</a>{% else %}</div>{% endif %}
   {% endif %}
 

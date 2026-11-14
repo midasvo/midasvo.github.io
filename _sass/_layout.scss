@@ -589,6 +589,22 @@
     margin-bottom: $spacing-unit * 0.7;
 }
 
+// /blog/: old posts, kept online but set apart below the current ones.
+.post-archive {
+    margin-top: $spacing-unit * 2.5;
+
+    .post-year__heading {
+        margin-bottom: 8px;
+    }
+}
+
+.post-archive__note {
+    font-size: $small-font-size;
+    color: var(--muted);
+    max-width: $measure;
+    margin-bottom: $spacing-unit * 0.7;
+}
+
 
 
 /**
@@ -796,5 +812,32 @@
     .project-card__tagline {
         font-size: 15px;
         line-height: 1.5;
+    }
+
+    // Three cards in two columns: the first spans the row, image beside the
+    // text, so the other two pair up below it instead of one being orphaned.
+    // The column gap matches the list gap, so the image's right edge lines up
+    // with the gutter between the two cards underneath.
+    @media (min-width: 720px) {
+        > .project-card:first-child {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            column-gap: $spacing-unit * 0.7;
+
+            // Fill the row's height (the image is cropped by object-fit if
+            // the text runs taller than 16:10).
+            .project-card__media {
+                aspect-ratio: auto;
+                align-self: stretch;
+                border-bottom: 0;
+                border-right: 1px solid var(--border);
+            }
+
+            .project-card__body {
+                padding: ($spacing-unit / 1.5) ($spacing-unit / 1.5) ($spacing-unit / 1.5) 0;
+                align-self: center;
+            }
+        }
     }
 }
