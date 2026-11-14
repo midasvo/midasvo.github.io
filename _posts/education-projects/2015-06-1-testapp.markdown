@@ -35,24 +35,24 @@ The core of the application is making requests and handling the response. For th
 
 #### Creating a request
 
-![Create a request](/assets/images/testapp/1-testapp_create_new_request.png)
+![Create a request](/assets/images/testapp/1-testapp_create_new_request.png){: width="667" height="631"}
 
 #### Creating a test
 
-![Create a test](/assets/images/testapp/2-testapp_create_new_test.png)
+![Create a test](/assets/images/testapp/2-testapp_create_new_test.png){: width="657" height="582" loading="lazy" decoding="async"}
 
 #### Creating a scenario
 
-![Create a scenario](/assets/images/testapp/3-testapp_create_new_scenario.png)
+![Create a scenario](/assets/images/testapp/3-testapp_create_new_scenario.png){: width="655" height="489" loading="lazy" decoding="async"}
 
 #### Executing a request
 
-![Execute a request](/assets/images/testapp/5-testapp_do_request.png)
+![Execute a request](/assets/images/testapp/5-testapp_do_request.png){: width="658" height="751" loading="lazy" decoding="async"}
 
 #### Executing a test
 
-![Execute a test](/assets/images/testapp/6-testapp_do_test.png)
+![Execute a test](/assets/images/testapp/6-testapp_do_test.png){: width="655" height="406" loading="lazy" decoding="async"}
 
 #### Exxecuting a scenario 
 
-![Execute a scenario](/assets/images/testapp/7-testapp_do_scenario.png)
+![Execute a scenario](/assets/images/testapp/7-testapp_do_scenario.png){: width="671" height="749" loading="lazy" decoding="async"}

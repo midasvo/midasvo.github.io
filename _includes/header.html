@@ -3,32 +3,51 @@
   <div class="wrapper site-header__inner">
     <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-    <nav class="site-nav" aria-label="Main">
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Toggle navigation">
-        <svg viewBox="0 0 18 15" width="24" height="20" aria-hidden="true">
-          <path fill="currentColor" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="currentColor" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="currentColor" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </button>
+    <div class="site-header__actions">
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Toggle navigation">
+          <svg viewBox="0 0 18 15" width="24" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="currentColor" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="currentColor" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </button>
+
+        {% comment %}
+          Explicit nav order. Each item is "Label|/url/". An item is marked
+          current when the page URL equals its URL (aria-current="page") or
+          starts with it, e.g. blog posts under /blog/ (aria-current="true").
+        {% endcomment %}
+        {% assign nav_items = "Blog|/blog/,Projects|/projects/,About|/about/,Uses|/uses/" | split: "," %}
+        <ul id="site-nav-menu" class="nav-menu">
+          {% for nav_item in nav_items %}
+            {% assign nav_parts = nav_item | split: "|" %}
+            {% assign nav_label = nav_parts[0] %}
+            {% assign nav_url = nav_parts[1] %}
+            {% assign nav_len = nav_url | size %}
+            {% assign nav_prefix = page.url | slice: 0, nav_len %}
+            <li><a class="page-link" href="{{ nav_url | relative_url }}"{% if page.url == nav_url %} aria-current="page"{% elsif nav_prefix == nav_url %} aria-current="true"{% endif %}>{{ nav_label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
 
       {% comment %}
-        Explicit nav order. Each item is "Label|/url/". An item is marked
-        current when the page URL equals its URL (aria-current="page") or
-        starts with it, e.g. blog posts under /blog/ (aria-current="true").
+        Light/dark toggle. Hidden without JS (it needs theme-toggle.js, which
+        also sets the accessible name). Sits outside the collapsible menu so it
+        stays one tap away on mobile. CSS shows the moon in the light theme and
+        the sun in the dark one, i.e. the theme a click switches to.
       {% endcomment %}
-      {% assign nav_items = "Blog|/blog/,Projects|/projects/,About|/about/,Uses|/uses/" | split: "," %}
-      <ul id="site-nav-menu" class="nav-menu">
-        {% for nav_item in nav_items %}
-          {% assign nav_parts = nav_item | split: "|" %}
-          {% assign nav_label = nav_parts[0] %}
-          {% assign nav_url = nav_parts[1] %}
-          {% assign nav_len = nav_url | size %}
-          {% assign nav_prefix = page.url | slice: 0, nav_len %}
-          <li><a class="page-link" href="{{ nav_url | relative_url }}"{% if page.url == nav_url %} aria-current="page"{% elsif nav_prefix == nav_url %} aria-current="true"{% endif %}>{{ nav_label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 <script src="{{ '/assets/scripts/nav-toggle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/scripts/theme-toggle.js' | relative_url }}" defer></script>

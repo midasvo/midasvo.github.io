@@ -34,14 +34,14 @@ Add an entry at the top of `_data/projects.yml` (newest first) with `name`, `tag
 
 ## Previewing locally
 
-There is currently no `Gemfile`. To preview you need Ruby and the `github-pages` gem, which pins the same Jekyll version GitHub Pages uses:
+The `Gemfile` pulls in the `github-pages` gem, which pins the same Jekyll version GitHub Pages uses. You need Ruby and Bundler:
 
 ```sh
-gem install github-pages
-jekyll serve
+bundle install
+bundle exec jekyll serve
 ```
 
-If you add a `Gemfile` with `gem "github-pages", group: :jekyll_plugins`, use `bundle exec jekyll serve` instead. The site is then served at http://localhost:4000.
+The site is then served at http://localhost:4000. `Gemfile.lock` is git-ignored (GitHub Pages ignores it and builds with its own pinned versions) and is excluded from the build via `_config.yml`.
 
 ## Deployment
 

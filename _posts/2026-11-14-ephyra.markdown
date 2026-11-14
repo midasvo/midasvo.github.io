@@ -11,7 +11,7 @@ description: "Ephyra is my free, open-source Jellyfin client for Android phones,
 
 You need your own [Jellyfin](https://jellyfin.org/) server and Android 10 or newer. The code is at [github.com/midasvo/ephyra](https://github.com/midasvo/ephyra).
 
-![Ephyra on Android TV: the Home screen with a full-width backdrop for the focused movie and a row of suggestions below it]({{ "/assets/images/ephyra/tv-home.webp" | relative_url }})
+![Ephyra on Android TV: the Home screen with a full-width backdrop for the focused movie and a row of suggestions below it]({{ "/assets/images/ephyra/tv-home.webp" | relative_url }}){: width="1280" height="720"}
 
 ## Why a fork
 
@@ -35,7 +35,7 @@ Profiles. Switching between the users on a server is one tap, and a profile can 
 
 Tablets and foldables. It's the phone app, laid out for the width it gets: a navigation rail, item pages with the poster beside the text, and a season as a list with the selected episode next to it.
 
-![Ephyra on a tablet in landscape: Home with a navigation rail on the left, a backdrop carousel and a Continue Watching row]({{ "/assets/images/ephyra/tablet-home.webp" | relative_url }})
+![Ephyra on a tablet in landscape: Home with a navigation rail on the left, a backdrop carousel and a Continue Watching row]({{ "/assets/images/ephyra/tablet-home.webp" | relative_url }}){: width="1280" height="740" loading="lazy" decoding="async"}
 
 Android TV. This is a separate app, built for the remote. Trickplay thumbnails while seeking, refresh rate switching to match the video, a Watch Next row, a screensaver. It also runs on 32-bit boxes like the Xiaomi Mi Box.
 

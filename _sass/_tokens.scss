@@ -38,37 +38,68 @@
     --syn-inserted-strong-bg: #b6ebc1;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #0f172a;
-        --fg: #e2e8f0;
-        --muted: #94a3b8;
-        --accent: #60a5fa;
-        --link: var(--accent);
+// Dark token set, defined once and applied in two places below.
+@mixin dark-tokens {
+    --bg: #0f172a;
+    --fg: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #60a5fa;
+    --link: var(--accent);
 
-        --accent-hover: #93c5fd;
-        --on-accent: #0f172a;
-        --border: #334155;
-        --code-bg: #1e293b;
+    --accent-hover: #93c5fd;
+    --on-accent: #0f172a;
+    --border: #334155;
+    --code-bg: #1e293b;
 
-        --syn-comment: #8b9bb0;
-        --syn-meta: #8b9bb0;
-        --syn-prompt: #cbd5e1;
-        --syn-string: #a5d6ff;
-        --syn-number: #79c0ff;
-        --syn-name: #7ee787;
-        --syn-builtin: #79c0ff;
-        --syn-type: #ffa657;
-        --syn-function: #d2a8ff;
-        --syn-tag: #7ee787;
-        --syn-entity: #d2a8ff;
-        --syn-regex: #7ee787;
-        --syn-symbol: #ff9bce;
-        --syn-error: #ffa198;
-        --syn-error-bg: #4a1414;
-        --syn-deleted-bg: #4a1d24;
-        --syn-deleted-strong-bg: #6e2430;
-        --syn-inserted-bg: #12361f;
-        --syn-inserted-strong-bg: #1b5530;
+    --syn-comment: #8b9bb0;
+    --syn-meta: #8b9bb0;
+    --syn-prompt: #cbd5e1;
+    --syn-string: #a5d6ff;
+    --syn-number: #79c0ff;
+    --syn-name: #7ee787;
+    --syn-builtin: #79c0ff;
+    --syn-type: #ffa657;
+    --syn-function: #d2a8ff;
+    --syn-tag: #7ee787;
+    --syn-entity: #d2a8ff;
+    --syn-regex: #7ee787;
+    --syn-symbol: #ff9bce;
+    --syn-error: #ffa198;
+    --syn-error-bg: #4a1414;
+    --syn-deleted-bg: #4a1d24;
+    --syn-deleted-strong-bg: #6e2430;
+    --syn-inserted-bg: #12361f;
+    --syn-inserted-strong-bg: #1b5530;
+}
+
+// Run @content only when the dark theme is in effect: either the system asks
+// for dark and the reader has not forced light, or the reader forced dark
+// (data-theme on <html>, set by the theme toggle). Use inside a selector.
+@mixin when-dark {
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) & {
+            @content;
+        }
     }
+
+    :root[data-theme="dark"] & {
+        @content;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        @include dark-tokens;
+    }
+}
+
+// Forced themes (theme toggle). color-scheme follows so form controls and
+// scrollbars match the page instead of the OS.
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    @include dark-tokens;
 }

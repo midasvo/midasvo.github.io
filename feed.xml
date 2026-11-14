@@ -16,7 +16,7 @@ layout: null
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{% if post.description %}{{ post.description | strip_html | xml_escape }}{% else %}{{ post.excerpt | strip_html | strip | xml_escape }}{% endif %}</description>
-        <content:encoded><![CDATA[{{ post.content | replace: ']]>', ']]&gt;' }}]]></content:encoded>
+        <content:encoded><![CDATA[{{ post.content | replace: 'src="/', 'src="__SITE__/' | replace: 'href="/', 'href="__SITE__/' | replace: 'src="__SITE__//', 'src="//' | replace: 'href="__SITE__//', 'href="//' | replace: '__SITE__', site.url | replace: ']]>', ']]&gt;' }}]]></content:encoded>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
         <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>

@@ -66,11 +66,11 @@ Create a push-helper
 
 Instead of using the inputbinder on this site to generate the Git URL you can also use the GUI to find the SSH url. Go to your repositories' page and click on SSH.
 
-![alt text](/assets/images/git-cheatsheet/use-ssh.png "Logo Title Text 1")
+![alt text](/assets/images/git-cheatsheet/use-ssh.png "Logo Title Text 1"){: width="1145" height="584"}
 
 Copy the link to your clipboard
 
-![alt text](/assets/images/git-cheatsheet/copy-to-clipboard.png "Logo Title Text 1")
+![alt text](/assets/images/git-cheatsheet/copy-to-clipboard.png "Logo Title Text 1"){: width="389" height="220" loading="lazy" decoding="async"}
 
 
 `sudo nano push.sh`

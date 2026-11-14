@@ -27,6 +27,23 @@
 	<meta name="color-scheme" content="light dark">
 	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+	<script>
+		// Apply a stored theme choice before first paint, so a forced theme
+		// never flashes the system one. The toggle itself lives in
+		// assets/scripts/theme-toggle.js; colours match --bg in _tokens.scss.
+		(function () {
+			try {
+				var t = localStorage.getItem('theme');
+				if (t !== 'light' && t !== 'dark') return;
+				document.documentElement.setAttribute('data-theme', t);
+				var c = t === 'dark' ? '#0f172a' : '#ffffff';
+				var m = document.querySelectorAll('meta[name="theme-color"]');
+				for (var i = 0; i < m.length; i++) m[i].setAttribute('content', c);
+				m = document.querySelector('meta[name="color-scheme"]');
+				if (m) m.setAttribute('content', t);
+			} catch (e) {}
+		})();
+	</script>
 	{%- if page.sitemap == false or page.url == '/404.html' %}
 	<meta name="robots" content="noindex">
 	{%- endif %}

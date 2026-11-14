@@ -39,7 +39,8 @@ ul, ol, dl, figure,
 
 
 /**
- * Images
+ * Images: height: auto keeps the aspect ratio when width/height attributes
+ * are set (the attributes still reserve space before the image loads).
  */
 img {
     max-width: 100%;
@@ -152,6 +153,23 @@ main:focus {
         color: var(--on-accent);
         transform: none;
     }
+}
+
+
+
+/**
+ * Visually hidden, still read by screen readers (e.g. live regions)
+ */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 

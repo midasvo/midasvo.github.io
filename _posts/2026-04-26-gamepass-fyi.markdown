@@ -11,7 +11,7 @@ Microsoft restructured Game Pass in October 2025. Three tiers now: Essential, Pr
 
 I stared at the compare page for about three minutes, gave up, and built [gamepass.fyi](https://gamepass.fyi) instead.
 
-![gamepass.fyi diff view: Premium (386 games) compared to Ultimate (518), with EA Play and Ubisoft+ benefit chips and a count of 134 games in Ultimate but not Premium]({{ "/assets/images/gamepass_fyi/diff.webp" | relative_url }})
+![gamepass.fyi diff view: Premium (386 games) compared to Ultimate (518), with EA Play and Ubisoft+ benefit chips and a count of 134 games in Ultimate but not Premium]({{ "/assets/images/gamepass_fyi/diff.webp" | relative_url }}){: width="1196" height="1654"}
 
 The thing I like most about this project is how boring it is. xbox.com itself fetches its catalog from a public, unauthenticated API. `catalog.gamepass.com` and `displaycatalog.mp.microsoft.com`. No Microsoft account, no key, no scraping. Crack DevTools, hit the tier filter, and the Network tab tells you exactly which UUIDs the page asks for.
 
@@ -27,7 +27,7 @@ The actual app is a single Spring Boot process plus Postgres. Kotlin because tha
 
 The schema is one of the few places I let myself overthink it. `tier_memberships` is `(game, tier, market, first_seen_at, last_seen_at, is_current)`. When a game leaves a tier I flip `is_current=false` and keep the row. If it comes back six weeks later, that's a new row, not an update. Which means "games added to Ultimate this month" is a query, not a separate cron. And the history stays intact even when titles bounce in and out, which they do more than I expected.
 
-![gamepass.fyi game detail page for Aerial_Knight's DropShot, with tier badges (Ultimate, PC Game Pass, Console Legacy) and a membership history table showing first-seen and last-seen dates per tier]({{ "/assets/images/gamepass_fyi/detail.webp" | relative_url }})
+![gamepass.fyi game detail page for Aerial_Knight's DropShot, with tier badges (Ultimate, PC Game Pass, Console Legacy) and a membership history table showing first-seen and last-seen dates per tier]({{ "/assets/images/gamepass_fyi/detail.webp" | relative_url }}){: width="1177" height="1690" loading="lazy" decoding="async"}
 
 A daily job at 04:00 CET pulls each `(tier, market)` SIGL, enriches any new BigIds in batches of 20 against displaycatalog, and reconciles. About a thousand unique games across all tiers, twenty seconds start to finish. There's a small Caffeine cache in front of the read API that the sync runner explicitly evicts when it finishes, so the next page load sees the new numbers. That one was a small gotcha to wire correctly.
 
@@ -37,7 +37,7 @@ Second, benefits sync across both the console and PC SIGLs and union the BigIds 
 
 Hosting is the usual stack: Oracle Free Tier VPS, Caddy out front for TLS, Forgejo Actions building both images on every push to `develop`. The frontend container is an unprivileged nginx that internally proxies `/api`, `/admin` and `/actuator` to the backend over the docker network, so Caddy on the host forwards to a single port and there's no `/api` split to maintain at the edge. Renovate runs Mondays before 6am and auto-merges patches. I almost never have to look at this stack and that's the point.
 
-![gamepass.fyi admin panel with cards for Sync a Tier, Sync a Benefit, Full Daily Run, Display Settings and Read Caches, plus a Recent Sync Runs table at the bottom]({{ "/assets/images/gamepass_fyi/admin.webp" | relative_url }})
+![gamepass.fyi admin panel with cards for Sync a Tier, Sync a Benefit, Full Daily Run, Display Settings and Read Caches, plus a Recent Sync Runs table at the bottom]({{ "/assets/images/gamepass_fyi/admin.webp" | relative_url }}){: width="1600" height="882" loading="lazy" decoding="async"}
 
 The admin page is form-login behind a single in-memory user. One-click triggers for "sync this tier", "sync this benefit", "run the full daily job now". Paginated table of recent runs underneath. Everything I need to debug a sync without SSHing in, which means most of the time I don't.
 

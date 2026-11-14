@@ -44,15 +44,22 @@
     }
 }
 
-.site-nav {
+// Nav plus the theme toggle. Also the positioning context for the mobile
+// dropdown, so the menu lines up with the right edge of the header.
+.site-header__actions {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-nav {
 
     .nav-toggle {
         display: none;
         background: none;
         border: 0;
         padding: 10px;
-        margin-right: -10px;
         cursor: pointer;
         color: var(--fg);
         line-height: 1;
@@ -119,6 +126,55 @@
         .page-link {
             padding: 10px 0;
         }
+    }
+
+    .js .site-header__actions {
+        gap: 2px;
+    }
+}
+
+// Light/dark theme toggle (assets/scripts/theme-toggle.js). Only shown when
+// JS runs; the icon is the theme a click switches to.
+.theme-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 0;
+    padding: 10px;
+    // Last item in the header: align the icon with the content edge.
+    margin-right: -10px;
+    cursor: pointer;
+    color: var(--fg);
+    line-height: 1;
+    border-radius: 4px;
+
+    &:hover {
+        color: var(--accent);
+    }
+
+    .js & {
+        display: inline-flex;
+    }
+}
+
+.theme-toggle__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle__icon--sun {
+    display: none;
+
+    @include when-dark {
+        display: block;
+    }
+}
+
+.theme-toggle__icon--moon {
+    @include when-dark {
+        display: none;
     }
 }
 
@@ -305,6 +361,99 @@
     th {
         font-weight: 600;
         border-bottom-width: 2px;
+    }
+
+    // Leave some air above headings (and footnotes) reached via a #fragment.
+    [id] {
+        scroll-margin-top: $spacing-unit;
+    }
+}
+
+
+
+/**
+ * Heading anchors (assets/scripts/post-content.js): a "#" link after each
+ * h2/h3 in .post-content. Shown on hover/focus; always shown on touch screens.
+ */
+.post-content .heading-anchor {
+    margin-left: 0.3em;
+    padding: 0 0.1em;
+    color: var(--muted);
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+        color: var(--accent);
+        text-decoration: none;
+    }
+
+    &:focus {
+        opacity: 1;
+    }
+
+    @media (hover: none) {
+        opacity: 1;
+    }
+}
+
+.post-content h2:hover > .heading-anchor,
+.post-content h3:hover > .heading-anchor {
+    opacity: 1;
+}
+
+
+
+/**
+ * Copy button on code blocks (assets/scripts/post-content.js).
+ * With a mouse it appears on hover/focus, so it only covers code while the
+ * pointer is over the block. On touch screens it is always visible and the
+ * block gets extra top padding, so it never sits on top of the code.
+ */
+.has-copy {
+    position: relative;
+}
+
+.code-copy {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 9px;
+    font-family: $base-font-family;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--muted);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+        color: var(--fg);
+        border-color: var(--accent);
+    }
+
+    &.is-done {
+        color: var(--fg);
+    }
+
+    @media (hover: hover) {
+        opacity: 0;
+
+        .has-copy:hover > &,
+        .has-copy:focus-within > &,
+        &.is-done {
+            opacity: 1;
+        }
+    }
+}
+
+@media (hover: none) {
+    .has-copy > pre {
+        padding-top: 36px;
     }
 }
 

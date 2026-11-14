@@ -7,11 +7,11 @@ description: "A short introduction to Git which focuses on building and hosting 
 status: draft
 ---
 
-**So you have heard about Git, but you still need to start somewhere? Let's do that together by building a simple portfolio website. We will be using the Ruby gem [Jekyll](http://jekyllrb.com/) which takes [Markdown](https://help.github.com/articles/github-flavored-markdown/) and generates the static HTML pages which can be hosted on [Github Pages](http://githubpages.com) for free.**
+**So you have heard about Git, but you still need to start somewhere? Let's do that together by building a simple portfolio website. We will be using the Ruby gem [Jekyll](https://jekyllrb.com/) which takes [Markdown](https://help.github.com/articles/github-flavored-markdown/) and generates the static HTML pages which can be hosted on [Github Pages](http://githubpages.com) for free.**
 
 You can use whatever operating system you like but I'll be noting the instructions down for the big 3: Ubuntu, OSX and Windows. 
 
-If you and your computer are up for it and you don't already run Linux or OSX, consider running a development machine with [VirtualBox](https://www.virtualbox.org/) and [Ubuntu 14.04.2 LTS](http://www.ubuntu.com/download/desktop) or dual-booting. 
+If you and your computer are up for it and you don't already run Linux or OSX, consider running a development machine with [VirtualBox](https://www.virtualbox.org/) and [Ubuntu 14.04.2 LTS](https://www.ubuntu.com/download/desktop) or dual-booting. 
 
 If you want you can try out **[Portable Jekyll for Windows](https://github.com/madhur/PortableJekyll/wiki)** which allegedly contains all the things you need to run it on Windows. [Or check out this website for a Windows tutorial.](http://jekyll-windows.juthilo.com/) After you've got Jekyll installed you can come back and join us for the Git part.
 
@@ -19,7 +19,7 @@ If you want you can try out **[Portable Jekyll for Windows](https://github.com/m
 {:toc}
 
 ### Installing Git
-To install Git you can use the package manager or the website. For Debian derivatives that is apt, OSX uses [homebrew](http://brew.sh/). 
+To install Git you can use the package manager or the website. For Debian derivatives that is apt, OSX uses [homebrew](https://brew.sh/). 
 
 #### Ubuntu
 Open the terminal and install git
@@ -86,10 +86,10 @@ Install the latest:
 
 
 #### Windows
-Windows users can install the [RubyInstaller](http://rubyinstaller.org/) and the [Ruby DevKit](http://dl.bintray.com/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe) from [this page](http://rubyinstaller.org/downloads/) in order to use gems.
+Windows users can install the [RubyInstaller](https://rubyinstaller.org/) and the [Ruby DevKit](http://dl.bintray.com/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe) from [this page](https://rubyinstaller.org/downloads/) in order to use gems.
 
 ## Installing Jekyll
-To install Jekyll we will use a nifty Ruby feature, the RubyGems. [RubyGems is a package manager for the Ruby programming language that provides a standard format for distributing Ruby programs and libraries (in a self-contained format called a "gem")](http://stackoverflow.com/questions/5233924/what-is-a-ruby-gem). You can find more about gems [here](http://guides.rubygems.org/what-is-a-gem/).
+To install Jekyll we will use a nifty Ruby feature, the RubyGems. [RubyGems is a package manager for the Ruby programming language that provides a standard format for distributing Ruby programs and libraries (in a self-contained format called a "gem")](http://stackoverflow.com/questions/5233924/what-is-a-ruby-gem). You can find more about gems [here](https://guides.rubygems.org/what-is-a-gem/).
 
 I added the '- -no-rdoc' flag because of an install error, if you really want it you can install it manually later. It's not required.
 
@@ -103,7 +103,7 @@ I added the '- -no-rdoc' flag because of an install error, if you really want it
 
 Git is a **V**ersion **C**ontrol **S**ystem, [version control is a system that records changes to a file or set of files over time so that you can recall specific versions later](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control). 
 
-Git is **not** Github. Git is the [protocol](https://git-scm.com/book/ch4-1.html) and Github is one of many sites where you can host remotely. The reason we're going with Github and not something like [Bitbucket](http://bitbucket.org) is the free hosting of Jekyll pages.
+Git is **not** Github. Git is the [protocol](https://git-scm.com/book/ch4-1.html) and Github is one of many sites where you can host remotely. The reason we're going with Github and not something like [Bitbucket](https://bitbucket.org) is the free hosting of Jekyll pages.
 
 Here are a couple commands to give you an idea and reference. We will run through them as well when we upload the Jekyll site to our github. Oh and [Here's a handy Git cheatsheet from Atlassian](https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf).
 
@@ -125,15 +125,15 @@ Here are a couple commands to give you an idea and reference. We will run throug
 ## Github
 If you do not have a github account yet, go to [github.com](https://github.com/join) and create one.
 
-Make sure you pay attention to your **organization name** as that will also be your sites name. For example, my organization name is **MidasVO** thus my github URL is [https://github.com/**MidasVO**](https://github.com/midasvo) and my eventual website name will be [**MidasVO**.github.io](http://midasvo.github.io).
+Make sure you pay attention to your **organization name** as that will also be your sites name. For example, my organization name is **MidasVO** thus my github URL is [https://github.com/**MidasVO**](https://github.com/midasvo) and my eventual website name will be [**MidasVO**.github.io](https://midasvo.github.io).
 
-Go to the top right corner and click on create a new repository: ![Creating a new repository](/assets/images/intro_to_git/create_new_repo.png)
+Go to the top right corner and click on create a new repository: ![Creating a new repository](/assets/images/intro_to_git/create_new_repo.png){: width="305" height="138"}
 
 The name of your repository has to be *username*.github.io otherwise **it will not work**. You can also add a .gitignore file with the name Jekyll. The files and folders marked in the .gitignore file will not be uploaded to your repository. I'll be using my own name and repository in the examples, you will simply need to substitute my name with your own to make those commands work. I think that will be more clear than constantly saying *username*.github.io. 
 
 Here's an example:
 
-![Creating a new repository config](/assets/images/intro_to_git/create_new_repo_owner.png)
+![Creating a new repository config](/assets/images/intro_to_git/create_new_repo_owner.png){: width="780" height="491" loading="lazy" decoding="async"}
 
 The default .gitignore for Jekyll consists of
 
@@ -222,14 +222,14 @@ To be able to use our Git repository we need to clone it and work from the clone
 
 ## Linking a Domain
 
-If visit go to [midasvo.github.io](http://midasvo.github.io) you'll be immediately redirected to [midasvo.nl](http://midasvo.nl). This is a result of the **CNAME** file and DNS records. If you have registered a Top-Level Domain Name or created a subdomain, you will need to create 2 A records and a CNAME record. You can do this in your registrars control panel.
+If visit go to [midasvo.github.io](https://midasvo.github.io) you'll be immediately redirected to [midasvo.nl](https://midasvo.nl). This is a result of the **CNAME** file and DNS records. If you have registered a Top-Level Domain Name or created a subdomain, you will need to create 2 A records and a CNAME record. You can do this in your registrars control panel.
 
 
 #### DNS
 
-I'm registered at [transip](http://transip.nl) and my DNS records look like this:
+I'm registered at [transip](https://transip.nl) and my DNS records look like this:
 
-![DNS records](/assets/images/intro_to_git/dns_records_example.png)
+![DNS records](/assets/images/intro_to_git/dns_records_example.png){: width="752" height="323" loading="lazy" decoding="async"}
 
 
 The two A records are a [requisite](https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider/) of Github Pages in order for them to route to your page properly. The CNAME record should be **username.github.io.** for everthing to work. Don't forget naming them **@** and **www**. The **TXT** record is for Google analytics.

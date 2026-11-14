@@ -8,7 +8,12 @@ layout: default
 {% if site.data.projects and site.data.projects.size > 0 %}
 <ul class="project-list">
   {% for project in site.data.projects %}
-    {% include project-card.html project=project heading_level=2 %}
+    {% comment %} The first row is above the fold: load those images eagerly. {% endcomment %}
+    {% if forloop.index <= 2 %}
+      {% include project-card.html project=project heading_level=2 eager=true %}
+    {% else %}
+      {% include project-card.html project=project heading_level=2 %}
+    {% endif %}
   {% endfor %}
 </ul>
 {% else %}

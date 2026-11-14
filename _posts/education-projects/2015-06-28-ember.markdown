@@ -19,7 +19,7 @@ After some brainstorming we settled on a fictional assignment of Nintendo wantin
 
 A major part of the project revolved around researching user experience and turning generated code into Angular. Lesson learned: don't let the designers use an online tool to create the design in HTML. It's an absolute mess.
 
-Because this project was the first real taste of MEAN I've gotten, I chose to kick-start the project and make up for lost time using the Yeoman generator for scaffolding and [meanjs](http://meanjs.org) because of its superior documentation.
+Because this project was the first real taste of MEAN I've gotten, I chose to kick-start the project and make up for lost time using the Yeoman generator for scaffolding and [meanjs](https://meanjs.org) because of its superior documentation.
 
 We had a very short development time so a lot of the really cool features we would've liked such as meta-games are not implemented. The main feature is the ability to use the canvas to create a custom Pokemon users sliders for ligaments. The user can save the image and name the Pokemon. Stats are generated at random.
 

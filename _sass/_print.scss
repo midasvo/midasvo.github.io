@@ -9,8 +9,15 @@
     .skip-link,
     .post-footer,
     nav,
-    .no-print {
+    .no-print,
+    .code-copy,
+    .heading-anchor {
         display: none !important;
+    }
+
+    // Undo the touch-screen room made for the copy button.
+    .has-copy > pre {
+        padding-top: 8px !important;
     }
 
     a,
