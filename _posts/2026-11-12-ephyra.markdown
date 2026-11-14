@@ -16,7 +16,13 @@ You need your own [Jellyfin](https://jellyfin.org/) server and Android 10 or new
 
 ## Why a fork
 
-**[TODO Midas: why you started the fork.]** *Suggestion: two or three sentences on what you missed in Findroid in March 2026 (downloads? the TV box?), and why that became a fork and not a pull request.*
+We go on a lot of holidays, and we're fine with our kids watching a few shows and movies on the tablet when there's some downtime. Mostly Bluey, honestly. My tablet doesn't have much storage, but there's plenty of room on the SD card. So I forked Findroid, added downloads to the SD card, tested it, and opened a pull request.
+
+When I wanted to get it merged, I saw that the project had come to a relative standstill, with lots of open issues and pull requests. Looking into why, it made sense: the maintainer was in the middle of a big upgrade. Life sometimes gets in the way, and the things you do for free as a hobby are naturally the first to go.
+
+So I made a "beta" variant instead, Findroid CE: a place where I could go wild, and where the maintainer, once he found the time, could cherry-pick changes that had already been tested on real devices for a while. It also gave others the chance to use the features and fixes they were waiting for. I gave it its own application ID, so it installs next to the real Findroid.
+
+Then it kind of spiralled. I kept adding more and having fun with it, until calling it a beta made it seem like less than it was. That's where the new name came from, and with it I let go of upstream a little. Everything is still open source, though: a good LLM should be able to port the work back to Findroid, and they're very welcome to it.
 
 Most of Ephyra is still Findroid, and I keep merging its changes in. What follows is what Ephyra adds on top.
 
@@ -34,13 +40,15 @@ Tablets and foldables. It's the phone app, laid out for the width it gets: a nav
 
 Android TV. This is a separate app, built for the remote. Trickplay thumbnails while seeking, refresh rate switching to match the video, a Watch Next row, a screensaver. It also runs on 32-bit boxes like the Xiaomi Mi Box.
 
-**[TODO Midas: which of these you care about most, and what you watch on.]** *Suggestion: one short paragraph, like the "thing I like most about this project" bit in the gamepass.fyi post. Which device, which feature was the hardest or the most satisfying.*
+## Making it solid
+
+I watch on my phone, my tablet and Android TV. On the TV, a Xiaomi box, I was using Wholphin, until at some point I thought: why don't I just use Findroid here? I installed it and saw it wasn't in great shape, and took that as an opportunity to make something great.
+
+I care about speed, looks and features. But mostly I just want it to be rock solid. And to be honest, at some point the vibes got a bit too vibey: I was pushing out features without testing them on every device. So I started a session that ran for several days and checked every feature on basically every device, with six emulators running at a time and physical devices connected. That spawned over a hundred issues, which got fixed one by one.
 
 ## The name
 
 An ephyra is a young jellyfish, and a jellyfish is the animal in Jellyfin's logo. The app was Findroid CE until version 2.0.0; the update installs over the old one.
-
-**[TODO Midas: why you renamed it.]** *Suggestion: one or two lines on why "Findroid CE" had to go and why 2.0.0 was the moment.*
 
 ## Getting it
 
@@ -59,6 +67,8 @@ It collects nothing. No analytics, no account with me, no server of mine in the 
 
 ## What's next
 
-**[TODO Midas: what's next.]** *Suggestion: two or three things you actually plan to work on (Google Play? something from the issue tracker?), in the tone of the "What I might add" ending of the gamepass.fyi post.*
+Mostly stability. New features are fun, but I'd rather have an app that just works on every device than one more switch in the settings.
+
+And getting it on all the stores. Obtainium is awesome, but it's for nerds. If I want my sister to use Ephyra, it just has to be on the Play Store. So that's coming, and F-Droid too, once the review is done.
 
 Everything about the app is on [midasvo.nl/ephyra](https://midasvo.nl/ephyra/). Bugs and requests go to the [issue tracker](https://github.com/midasvo/ephyra/issues).
