@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ephyra: a Jellyfin client for Android and Android TV"
-date:   2026-11-14 10:00:00
+date:   2026-11-14 07:00:00
 categories: blog featured
 permalink: /blog/ephyra
 description: "Ephyra is my free, open-source Jellyfin client for Android phones, tablets and Android TV. A fork of Findroid, formerly called Findroid CE."
