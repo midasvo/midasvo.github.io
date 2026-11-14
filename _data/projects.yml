@@ -15,7 +15,7 @@
   image: /assets/images/ephyra/tv-home.webp
   image_alt: Ephyra's Android TV Home screen with a full-width backdrop for the focused movie and a row of suggestions
   url: https://midasvo.nl/ephyra/
-  # post_url: /blog/ephyra   (add once the post is published)
+  post_url: /blog/ephyra
   tech:
     - Kotlin
     - Jetpack Compose
